@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Redirect } from "react-router-dom";
+import axiosInstance from "../axios";
 
 export default class Login extends Component {
     constructor(props) {
@@ -26,23 +27,19 @@ export default class Login extends Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        const formData = new FormData();
-        formData.append('email', this.state.email);
-        formData.append('password', this.state.password);
-
-        const request = {
-            method: "POST",
-            body: formData,
-        };
-
-        fetch("/api/token/", request)
-        .then(response => response.json())
-        .then(data => {
-            localStorage.setItem('access_token', 'Bearer ' + data.access);
-            localStorage.setItem('refresh_token', data.refresh);
-            this.setState({redirectToReferrer: true});
+        axiosInstance.post('/token/', {
+            email: this.state.email,
+            password: this.state.password
         })
-        .catch(error => console.log(error));
+        .then(response => {
+            console.log(response);
+            localStorage.setItem('access_token', response.data.access);
+            localStorage.setItem('refresh_token', response.data.refresh);
+            axiosInstance.defaults.headers['Authorization'] =
+					'Bearer ' + localStorage.getItem('access_token');
+        })
+        .catch(error => console.log(error))
+        .finally(this.setState({redirectToReferrer: true}));
     }
 
     handleChange(e) {
@@ -52,6 +49,10 @@ export default class Login extends Component {
     }
 
     render() {
+        if (localStorage.getItem("access_token") != null) {
+            return <Redirect to="/" />
+        }
+
         if (this.state.redirectToReferrer === true) {
             return <Redirect to={this.props.location.state
             ? this.props.location.state.referrer

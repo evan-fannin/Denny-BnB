@@ -18,7 +18,8 @@ export default class SignUp extends Component {
         super(props);
         this.state = {
             email: '',
-            username: '',
+            firstName: '',
+            lastName: '',
             password: ''
         };
     }
@@ -33,7 +34,8 @@ export default class SignUp extends Component {
         e.preventDefault();
         const formData = new FormData();
         formData.append('email', this.state.email);
-        formData.append('user_name', this.state.username);
+        formData.append('first_name', this.state.firstName);
+        formData.append('last_name', this.state.lastName);
         formData.append('password', this.state.password);
         const request = {
             method: "POST",
@@ -82,10 +84,22 @@ export default class SignUp extends Component {
                                     variant="outlined"
                                     required
                                     fullWidth
-                                    id="username"
-                                    label="Username"
-                                    name="username"
-                                    autoComplete="username"
+                                    id="firstName"
+                                    label="First Name"
+                                    name="firstName"
+                                    autoComplete="first name"
+                                    onChange={(e) => this.handleChange(e)}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                    id="lastName"
+                                    label="Last Name"
+                                    name="lastName"
+                                    autoComplete="last name"
                                     onChange={(e) => this.handleChange(e)}
                                 />
                             </Grid>

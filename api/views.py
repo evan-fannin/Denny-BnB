@@ -127,7 +127,7 @@ class CreateHouseBooking(APIView):
         if serializer.is_valid():
             start_date = serializer.validated_data.get('start_date')
             end_date = serializer.validated_data.get('end_date')
-            house_name = request.data.get('house_name')  # This need error handling ... check for absence
+            house_name = request.data.get('house_name')  # This needs error handling ... check for absence
             queryset = House.objects.filter(name=house_name)
             house = queryset[0]
             booking = Booking(start_date=start_date, end_date=end_date, house=house)

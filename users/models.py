@@ -31,14 +31,24 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     user_name = models.CharField(max_length=100, unique=True)
-    first_name = models.CharField(max_length=100, blank=True)
+    first_name = models.CharField(max_length=100, blank=False)
+    last_name = models.CharField(max_length=100, blank=False)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
 
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['user_name', 'first_name']
+    REQUIRED_FIELDS = ['first_name', 'last_name']
 
     def __str__(self):
         return self.user_name
+
+
+class UserBooking(models.Model):
+    user = models.ForeignKey(CustomUser, related_name='bookings', on_delete=models.CASCADE)
+    start_date = models.CharField(max_length=100)
+    end_date = models.CharField(max_length=100)
+    price_per_night = models.DecimalField(max_digits=10, decimal_places=2)
+    fees = models.DecimalField(max_digits=10, decimal_places=2)
+    guests = models.DecimalField(max_digits=10, decimal_places=0)

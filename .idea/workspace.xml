@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="23c90b9c-ecb2-4edb-98c3-adaaace4bf85" name="Default Changelist" comment="" />
+    <list default="true" id="23c90b9c-ecb2-4edb-98c3-adaaace4bf85" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airbnb_clone/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/airbnb_clone/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/privateRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/privateRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/reservationPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/reservationPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/signout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/signout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/frontend/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/frontend/main.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/frontend/main.js.LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1y6Gc1WAhiwZEr08zdTPSwEE5aq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />

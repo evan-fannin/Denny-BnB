@@ -8,12 +8,24 @@ export default class ReservationPage extends Component{
         super(props);
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+    }
+
     render() {
         return (
             <div>
-                <h1>Finish Your Reservation</h1>
-                <Button onClick={() => console.log(this.props.location.state)}>
-                    Log
+                <h1>Confirm your reservation</h1>
+                <p>House: {this.props.location.state.name}</p>
+                <p>Price Per Night: ${this.props.location.state.price}</p>
+                <p>Dates: {this.props.location.state.startDate.toString()}</p>
+                <p>to</p>
+                <p>{this.props.location.state.endDate.toString()}</p>
+                <p>Total Price: ${parseFloat(this.props.location.state.price) *
+                (this.props.location.state.endDate - this.props.location.state.startDate) /
+                (1000 * 60 * 60 * 24)}</p>
+                <Button onClick={(e) => this.handleSubmit(e)}>
+                    Reserve Now
                 </Button>
             </div>
 
