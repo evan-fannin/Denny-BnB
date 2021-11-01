@@ -10,7 +10,7 @@ urlpatterns = [
     path('house/<str:house_name>/images', index),
     path('create', index),
     path('calendar', index),
-    path('book', index),
+    path('book/<str:house_name>', index),
     path('signup', index),
     path('login', index)
 ]

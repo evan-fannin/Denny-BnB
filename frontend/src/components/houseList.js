@@ -9,6 +9,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import { Link } from "react-router-dom";
 
+import axiosInstance from "../axios";
+
 export default class HouseList extends Component {
     constructor(props) {
         super(props);
@@ -19,15 +21,23 @@ export default class HouseList extends Component {
     }
 
     componentDidMount() {
-        fetch('/api/get-houses/')
-        .then((response) => response.json())
-        .then(data => {
-            console.log(data)
+        axiosInstance.get('get-houses/')
+        .then(response => {
+            console.log(response.data);
             this.setState({
-                houses: data,
+                houses: response.data,
                 pageLoaded: true
             });
         });
+//        fetch('/api/get-houses/')
+//        .then((response) => response.json())
+//        .then(data => {
+//            console.log(data)
+//            this.setState({
+//                houses: data,
+//                pageLoaded: true
+//            });
+//        });
     }
 
     parseImages(data_images) {

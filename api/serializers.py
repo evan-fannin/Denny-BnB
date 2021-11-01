@@ -5,13 +5,38 @@ from api.models import House, HouseImage, Booking
 class CreateBookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
+        fields = ['start_date', 'end_date', 'price_per_night']
+
+    def create(self, validated_data):
+        user = self.context['request'].user
+        house = self.context['house']
+        instance = self.Meta.model(**validated_data, user=user, house=house)
+        instance.save()
+        return instance
+
+
+# class CreateUserBookingSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = UserBooking
+#         fields = ['start_date', 'end_date', 'price_per_night']
+#
+#     def create(self, validated_data):
+#         user = self.context['request'].user
+#         instance = self.Meta.model(**validated_data, user=user)
+#         instance.save()
+#         return instance
+
+
+class CalendarBookingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Booking
         fields = ['start_date', 'end_date']
 
 
-class BookingSerializer(serializers.ModelSerializer):
+class UserBookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = ['id', 'start_date', 'end_date', 'house']
+        fields = ['start_date', 'end_date', 'price_per_night', 'house']
 
 
 class CreateHouseImageSerializer(serializers.ModelSerializer):

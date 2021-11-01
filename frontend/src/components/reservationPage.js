@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "@material-ui/core";
+import axiosInstance from "../axios"
 
 
 
@@ -10,6 +11,18 @@ export default class ReservationPage extends Component{
 
     handleSubmit(e) {
         e.preventDefault();
+        axiosInstance.post('create-booking/', {
+            start_date: this.props.location.state.startDate.toString(),
+            end_date: this.props.location.state.endDate.toString(),
+            price_per_night: parseFloat(this.props.location.state.price),
+            house_name: this.props.location.state.name
+        })
+        .then(response => {
+            console.log(response.data);
+            this.props.history.push("/user-bookings");
+        })
+        .catch(error => console.log(error))
+
     }
 
     render() {

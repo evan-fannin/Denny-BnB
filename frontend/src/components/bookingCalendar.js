@@ -19,9 +19,10 @@ export default class BookingCalendar extends Component {
     }
 
     componentDidMount() {
-        fetch("/api/get-bookings?name=" + this.houseName)
+        fetch("/api/get-bookings?houseName=" + this.houseName)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             this.setState({disabledDates: this.generateBookedDates(data)});
         });
     }

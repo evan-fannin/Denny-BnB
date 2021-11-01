@@ -20,7 +20,8 @@ export default class Login extends Component {
         this.state = {
             email: '',
             password: '',
-            redirectToReferrer: false
+            redirectToReferrer: false,
+            invalidCredentials: false
         };
     }
 
@@ -32,14 +33,20 @@ export default class Login extends Component {
             password: this.state.password
         })
         .then(response => {
-            console.log(response);
             localStorage.setItem('access_token', response.data.access);
             localStorage.setItem('refresh_token', response.data.refresh);
             axiosInstance.defaults.headers['Authorization'] =
 					'Bearer ' + localStorage.getItem('access_token');
+		    this.setState({
+		        invalidCredentials: false,
+		        redirectToReferrer: true
+		    });
         })
-        .catch(error => console.log(error))
-        .finally(this.setState({redirectToReferrer: true}));
+        .catch(error => {
+            if (error.response.status === 401) {
+                this.setState({invalidCredentials: true});
+            }
+        });
     }
 
     handleChange(e) {
@@ -116,14 +123,38 @@ export default class Login extends Component {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <Link href="/signup" variant="body2">
                                     {"Don't have an account? Sign Up"}
                                 </Link>
                             </Grid>
                         </Grid>
                     </form>
+                    <Grid container>
+                        <InvalidCredentials invalidCredentials={this.state.invalidCredentials} />
+                    </Grid>
                 </div>
             </Container>
         )
     }
+}
+
+function InvalidCredentials(props) {
+    if (props.invalidCredentials === true) {
+        return (
+           <Grid item xs>
+              <p>
+                The email or password you entered is invalid.
+              </p>
+              <p>
+                Check that you entered them correctly or create an account.
+              </p>
+            </Grid>
+        );
+    }
+
+    return (
+        <Grid item xs>
+            <p></p>
+        </Grid>
+    );
 }

@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import CustomUser
 # Create your models here.
 
 
@@ -16,5 +17,7 @@ class HouseImage(models.Model):
 class Booking(models.Model):
     start_date = models.CharField(max_length=100)
     end_date = models.CharField(max_length=100)
+    price_per_night = models.DecimalField(max_digits=10, decimal_places=2)
     house = models.ForeignKey(House, related_name='bookings', on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, related_name='bookings', on_delete=models.CASCADE)
 

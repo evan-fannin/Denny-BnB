@@ -43,7 +43,7 @@ export default class HomePage extends Component {
                 <Route path='/calendar' component={BookingCalendar}/>
                 <Route exact path='/house/:houseName' component={HouseDetail}/>
                 <Route path='/house/:houseName/images' component={HouseImages}/>
-                <PrivateRoute path="/book" component={ReservationPage} />
+                <PrivateRoute path="/book/:houseName" component={ReservationPage} />
                 <Route path="/signup" component={SignUp}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/signout" component={SignOut}/>

@@ -1,12 +1,14 @@
 from api.models import House, HouseImage, Booking
+from users.models import CustomUser
 from api.serializers import HouseSerializer, \
     CreateHouseSerializer, \
     CreateHouseImageSerializer, \
     HouseImageSerializer, \
-    BookingSerializer, \
-    CreateBookingSerializer
+    CalendarBookingSerializer, \
+    CreateBookingSerializer, \
+    UserBookingSerializer
 from api.auth import HouseDetailPermission
-
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import generics, status
 from rest_framework.response import Response
@@ -14,21 +16,10 @@ from rest_framework.views import APIView
 
 
 # Create your views here.
-class HouseList(generics.ListAPIView):
-    queryset = House.objects.all()
-    serializer_class = HouseSerializer
-    parser_classes = [MultiPartParser, FormParser]
-
-
-class HouseDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = House.objects.all()
-    serializer_class = HouseSerializer
-    parser_classes = [MultiPartParser, FormParser]
-
-
 class GetHouses(APIView):
     serializer_class = HouseSerializer
     parser_classes = [MultiPartParser, FormParser]
+    permission_classes = [AllowAny]
 
     def get(self, request, format=None):
         houses = House.objects.all()
@@ -121,35 +112,50 @@ class CreateHouseView(APIView):
 class CreateHouseBooking(APIView):
     serializer_class = CreateBookingSerializer
     parser_classes = [MultiPartParser, FormParser]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request, format=None):
-        serializer = self.serializer_class(data=request.data)
+        house_name = request.data.get('house_name')  # This needs error handling ... check for absence
+        queryset = House.objects.filter(name=house_name)
+        house = queryset[0]
+        serializer = self.serializer_class(data=request.data, context={'request': request, 'house': house})
         if serializer.is_valid():
-            start_date = serializer.validated_data.get('start_date')
-            end_date = serializer.validated_data.get('end_date')
-            house_name = request.data.get('house_name')  # This needs error handling ... check for absence
-            queryset = House.objects.filter(name=house_name)
-            house = queryset[0]
-            booking = Booking(start_date=start_date, end_date=end_date, house=house)
-            booking.save()
-            return Response(BookingSerializer(booking).data, status=status.HTTP_200_OK)
-        return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+            booking = serializer.save()
+            if booking:
+                json = serializer.data
+                return Response(json, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class GetHouseBookings(APIView):
-    serializer_class = CreateBookingSerializer
+    serializer_class = CalendarBookingSerializer
     parser_classes = [MultiPartParser, FormParser]
 
     def get(self, request, format=None):
-        name = request.GET.get('name')
+        name = request.GET.get('houseName')
 
         if name is not None:
             houses = House.objects.filter(name=name)
             if houses:
                 house = houses[0]
                 bookings = house.bookings.all()
-                data = BookingSerializer(bookings, many=True).data
+                data = CalendarBookingSerializer(bookings, many=True).data
                 return Response(data, status=status.HTTP_200_OK)
             return Response({'House Not Found': 'A house with this name does not exist.'},
                             status=status.HTTP_404_NOT_FOUND)
         return Response({'Bad Request': 'Name parameter not found in request'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class GetUserBookings(APIView):
+    serializer_class = CalendarBookingSerializer
+    parser_classes = [MultiPartParser, FormParser]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format=None):
+        user = request.user
+        if user:
+            bookings = user.bookings.all()
+            data = UserBookingSerializer(bookings, many=True).data
+            return Response(data, status=status.HTTP_200_OK)
+        return Response({'User Not Found': 'No such user exists.'},
+                        status=status.HTTP_404_NOT_FOUND)

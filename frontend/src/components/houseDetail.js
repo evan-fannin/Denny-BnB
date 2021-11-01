@@ -38,7 +38,7 @@ export default class HouseDetail extends Component {
         this.setState({
             startDate: startDate,
             endDate: endDate,
-        }, () => this.props.history.push("/book", this.state));
+        }, () => this.props.history.push("/book/" + this.houseName, this.state));
     }
 
     parseImages(data_images) {
