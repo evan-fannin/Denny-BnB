@@ -115,10 +115,7 @@ class CreateHouseBooking(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, format=None):
-        house_name = request.data.get('house_name')  # This needs error handling ... check for absence
-        queryset = House.objects.filter(name=house_name)
-        house = queryset[0]
-        serializer = self.serializer_class(data=request.data, context={'request': request, 'house': house})
+        serializer = self.serializer_class(data=request.data, context={'request': request})
         if serializer.is_valid():
             booking = serializer.save()
             if booking:

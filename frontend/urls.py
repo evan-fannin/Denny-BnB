@@ -12,5 +12,6 @@ urlpatterns = [
     path('calendar', index),
     path('book/<str:house_name>', index),
     path('signup', index),
-    path('login', index)
+    path('login', index),
+    path('user-bookings/', index),
 ]

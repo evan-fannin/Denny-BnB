@@ -14,14 +14,18 @@ export default function UserBookings(props) {
     const [bookings, updateBookings] = useState([])
 
     useEffect(() => {
-        axiosInstance.get()
-    });
+        axiosInstance.get('get-user-bookings/')
+        .then(response => {
+            console.log(response.data);
+            updateBookings(response.data)
+        });
+    }, []);
 
     return (
         <Grid container spacing={1} style={{overflow: 'auto'}}>
             {bookings.map(booking => (
                     <BookingCard
-                    house={booking.house.name}
+                    houseName={booking.house_name}
                     price={booking.price_per_night}
                     />
                 ))}
@@ -36,14 +40,14 @@ function BookingCard(props) {
                 <CardActionArea disableRipple href={"#"}>
                     <CardContent>
                         <Typography variant="h5">
-                            {props.name}
+                            {props.houseName}
                         </Typography>
                     </CardContent>
                     <CardMedia
                     className="card-image"
                     style={{height: '30%', width: '30%'}}
                     component="img"
-                    src="/frontend/static/images/colville_1.jpeg"
+                    src={"/static/images/colville_1.jpeg"}
                     />
                     <CardContent>
                         ${props.price} per night

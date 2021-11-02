@@ -46,6 +46,10 @@ axiosInstance.interceptors.response.use(
 		) {
 			const refreshToken = localStorage.getItem('refresh_token');
 
+			if (refreshToken === 'undefined') {
+			    window.location.href = '/login';
+			}
+
 			if (refreshToken) {
 				const tokenParts = JSON.parse(atob(refreshToken.split('.')[1]));
 
@@ -72,11 +76,11 @@ axiosInstance.interceptors.response.use(
 						});
 				} else {
 					console.log('Refresh token is expired', tokenParts.exp, now);
-					window.location.href = 'login';
+					window.location.href = '/login';
 				}
 			} else {
 				console.log('Refresh token not available.');
-				window.location.href = 'login';
+				window.location.href = '/login';
 			}
 		}
 

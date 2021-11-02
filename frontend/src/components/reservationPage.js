@@ -11,18 +11,19 @@ export default class ReservationPage extends Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        axiosInstance.post('create-booking/', {
-            start_date: this.props.location.state.startDate.toString(),
-            end_date: this.props.location.state.endDate.toString(),
-            price_per_night: parseFloat(this.props.location.state.price),
-            house_name: this.props.location.state.name
-        })
+
+        const formData = new FormData();
+        formData.append('start_date', this.props.location.state.startDate);
+        formData.append('end_date', this.props.location.state.endDate);
+        formData.append('price_per_night', parseFloat(this.props.location.state.price));
+        formData.append('house_name', this.props.location.state.name);
+
+        axiosInstance.post('create-booking/', formData)
         .then(response => {
             console.log(response.data);
             this.props.history.push("/user-bookings");
         })
         .catch(error => console.log(error))
-
     }
 
     render() {

@@ -56,7 +56,11 @@ export default class Login extends Component {
     }
 
     render() {
-        if (localStorage.getItem("access_token") != null) {
+        if (localStorage.getItem("access_token") != null
+            && localStorage.getItem("refresh_token") != null
+            && localStorage.getItem("access_token") != 'undefined'
+            && localStorage.getItem("refresh_token") != 'undefined'
+        ) {
             return <Redirect to="/" />
         }
 
