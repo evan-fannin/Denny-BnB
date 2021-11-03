@@ -14,4 +14,5 @@ urlpatterns = [
     path('signup', index),
     path('login', index),
     path('user-bookings/', index),
+    path('user-bookings/<str:id>/', index),
 ]

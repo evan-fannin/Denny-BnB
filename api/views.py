@@ -7,7 +7,7 @@ from api.serializers import HouseSerializer, \
     CalendarBookingSerializer, \
     CreateBookingSerializer, \
     UserBookingSerializer
-from api.auth import HouseDetailPermission
+from api.auth import UserBookingPermission
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import generics, status
@@ -34,10 +34,10 @@ class GetHouses(APIView):
                         status=status.HTTP_404_NOT_FOUND)
 
 
-class GetHouse(APIView, HouseDetailPermission):
+class GetHouse(APIView):
     serializer_class = HouseSerializer
     parser_classes = [MultiPartParser, FormParser]
-    permission_classes = [HouseDetailPermission]
+    permission_classes = [AllowAny]
 
     def get(self, request, format=None):
         #   Handling multiple words in name and capitalization of each
@@ -144,7 +144,7 @@ class GetHouseBookings(APIView):
 
 
 class GetUserBookings(APIView):
-    serializer_class = CalendarBookingSerializer
+    serializer_class = UserBookingSerializer
     parser_classes = [MultiPartParser, FormParser]
     permission_classes = [IsAuthenticated]
 
@@ -156,3 +156,23 @@ class GetUserBookings(APIView):
             return Response(data, status=status.HTTP_200_OK)
         return Response({'User Not Found': 'No such user exists.'},
                         status=status.HTTP_404_NOT_FOUND)
+
+
+class GetUserBooking(APIView, UserBookingPermission):
+    serializer_class = UserBookingSerializer
+    parser_classes = [MultiPartParser, FormParser]
+    permission_classes = [IsAuthenticated, UserBookingPermission]
+
+    def get(self, request, format=None):
+        id = request.GET.get('id')
+        print(id)
+        if id:
+            user = request.user
+            bookings = user.bookings.filter(id=id)
+            if bookings:
+                booking = bookings[0]
+                self.check_object_permissions(request, booking)
+                serializer = UserBookingSerializer(booking)
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        return Response({'Bad Request': 'Name parameter not found in request'}, status=status.HTTP_400_BAD_REQUEST)

@@ -21,6 +21,7 @@ import Login from "./login";
 import SignOut from "./signout";
 import PrivateRoute from "./privateRoute";
 import UserBookings from "./userBookings";
+import BookingDetail from "./bookingDetail";
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core//CardContent';
@@ -48,7 +49,8 @@ export default class HomePage extends Component {
                 <Route path="/signup" component={SignUp}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/signout" component={SignOut}/>
-                <PrivateRoute path="/user-bookings" component={UserBookings} />
+                <PrivateRoute exact path="/user-bookings" component={UserBookings} />
+                <PrivateRoute path="/user-bookings/:id" component={BookingDetail} />
                 </Switch>
             </Router>
         );

@@ -38,7 +38,7 @@ class CalendarBookingSerializer(serializers.ModelSerializer):
 class UserBookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = ['start_date', 'end_date', 'price_per_night', 'house_name']
+        fields = ['id', 'start_date', 'end_date', 'price_per_night', 'house_name']
 
 
 class CreateHouseImageSerializer(serializers.ModelSerializer):

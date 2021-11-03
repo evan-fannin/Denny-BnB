@@ -27,6 +27,7 @@ export default function UserBookings(props) {
                     <BookingCard
                     houseName={booking.house_name}
                     price={booking.price_per_night}
+                    id={booking.id}
                     />
                 ))}
         </Grid>
@@ -37,7 +38,7 @@ function BookingCard(props) {
     return (
         <Grid item xs={12} align="center">
             <Card>
-                <CardActionArea disableRipple href={"#"}>
+                <CardActionArea disableRipple href={"/user-bookings/" + props.id + "/"}>
                     <CardContent>
                         <Typography variant="h5">
                             {props.houseName}

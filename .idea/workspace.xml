@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23c90b9c-ecb2-4edb-98c3-adaaace4bf85" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/bookingDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airbnb_clone/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/airbnb_clone/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/auth.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/axios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/homePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/homePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/reservationPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/reservationPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/userBookings.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/userBookings.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/frontend/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/static/frontend/main.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/frontend/main.js.LICENSE.txt" afterDir="false" />
