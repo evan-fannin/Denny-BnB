@@ -22,6 +22,7 @@ import SignOut from "./signout";
 import PrivateRoute from "./privateRoute";
 import UserBookings from "./userBookings";
 import BookingDetail from "./bookingDetail";
+import Header from "./header";
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core//CardContent';
@@ -36,6 +37,7 @@ export default class HomePage extends Component {
     render() {
         return (
             <Router>
+                <Header />
                 <Switch>
                 <Route exact path='/'>
                     <HomePageMenu/>
@@ -59,7 +61,7 @@ export default class HomePage extends Component {
 
     function HomePageMenu(props) {
         return(
-            <Grid container spacing={1} style={{overflow: 'auto'}}>
+            <Grid container spacing={1} style={{overflow: 'auto', marginTop: 65}}>
                 <Grid item xs={12} align="center">
                     <Typography component="h2" variant="h2">
                         Denny BnB

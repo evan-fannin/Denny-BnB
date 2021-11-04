@@ -28,7 +28,7 @@ export default function BookingDetail(props) {
     }, []);
 
     return (
-        <Grid container spacing>
+        <Grid container spacing style={{ marginTop: 60 }} >
             <Grid item xs={12}>
                     House: {booking.houseName}
             </Grid>

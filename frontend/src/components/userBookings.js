@@ -22,7 +22,7 @@ export default function UserBookings(props) {
     }, []);
 
     return (
-        <Grid container spacing={1} style={{overflow: 'auto'}}>
+        <Grid container spacing={1} style={{overflow: 'auto', marginTop: 60}}>
             {bookings.map(booking => (
                     <BookingCard
                     houseName={booking.house_name}

@@ -53,7 +53,7 @@ export default class SignUp extends Component {
 
     render() {
         return (
-            <Container component="main" maxWidth="xs">
+            <Container component="main" maxWidth="xs" style={{ marginTop: 60 }}>
                 <CssBaseline />
                 <div>
                     <Grid container spacing={1}>

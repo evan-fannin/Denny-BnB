@@ -55,7 +55,7 @@ export default class HouseList extends Component {
             return (<h1>Loading...</h1>);
         }
         return (
-            <Grid container spacing={1} style={{overflow: 'auto'}}>
+            <Grid container spacing={1} style={{overflow: 'auto', marginTop: 60}}>
             {this.state.houses.map(house => (
                 <HouseCard
                 name={house.name}

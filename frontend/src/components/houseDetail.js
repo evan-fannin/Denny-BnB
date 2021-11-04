@@ -63,7 +63,7 @@ export default class HouseDetail extends Component {
             images.push({url: this.state.images[i]})
         }
         return (
-            <Grid container spacing={1} style={{overflow: 'auto'}}>
+            <Grid container spacing={1} style={{overflow: 'auto', marginTop: 60}}>
                 <Grid item xs={12} align="center">
                     <h1>{this.state.name}</h1>
                     <p>{this.state.address}</p>
