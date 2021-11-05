@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import {
     BrowserRouter as Router,
     Switch,
@@ -24,19 +24,20 @@ import UserBookings from "./userBookings";
 import BookingDetail from "./bookingDetail";
 import Header from "./header";
 
+import { AuthContext } from "../context";
+
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core//CardContent';
 import CardMedia from "@material-ui/core/CardMedia";
 
 
-export default class HomePage extends Component {
-    constructor(props) {
-        super(props);
-    }
+export default function HomePage() {
+    const [authenticated, setAuthenticated] = useState(false);
+    const value = { authenticated, setAuthenticated }
 
-    render() {
-        return (
-            <Router>
+    return (
+        <Router>
+            <AuthContext.Provider value={value}>
                 <Header />
                 <Switch>
                 <Route exact path='/'>
@@ -54,9 +55,9 @@ export default class HomePage extends Component {
                 <PrivateRoute exact path="/user-bookings" component={UserBookings} />
                 <PrivateRoute path="/user-bookings/:id" component={BookingDetail} />
                 </Switch>
-            </Router>
-        );
-    }
+            </AuthContext.Provider>
+        </Router>
+    );
 }
 
     function HomePageMenu(props) {

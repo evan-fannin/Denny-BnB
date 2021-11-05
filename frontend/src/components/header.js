@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
-AppBar,
-Button,
-CssBaseline,
-Toolbar,
-Typography,
- makeStyles} from "@material-ui/core";
+    AppBar,
+    Button,
+    CssBaseline,
+    Toolbar,
+    Typography,
+     makeStyles
+} from "@material-ui/core";
 import {
-Link
+    Link
 } from "react-router-dom";
+import { AuthContext } from "../context";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -58,29 +60,25 @@ export default function Header() {
 }
 
 function LogInOut(props) {
-    if (localStorage.getItem('access_token') != 'undefined'
-    && localStorage.getItem('access_token') != null) {
-        return (
-            <Button
-                justify="right"
-                color="primary"
-                variant="outlined"
-                component={Link}
-                to="/signout"
-            >
-                Sign Out
-            </Button>
-        )
-    }
-    else return (
-        <Button
-            justify="right"
-            color="primary"
-            variant="outlined"
-            component={Link}
-            to="/login"
-        >
-            Login
-        </Button>
-    )
+    const { authenticated, setAuthenticated } = useContext(AuthContext);
+
+    return authenticated ?
+    (<Button
+        justify="right"
+        color="primary"
+        variant="outlined"
+        component={Link}
+        to="/signout"
+    >
+        Sign Out
+    </Button>) :
+    (<Button
+        justify="right"
+        color="primary"
+        variant="outlined"
+        component={Link}
+        to="/login"
+    >
+        Login
+    </Button>);
 }
