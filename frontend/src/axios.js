@@ -35,6 +35,7 @@ axiosInstance.interceptors.response.use(
 			error.response.status === 401 &&
 			originalRequest.url === baseURL + 'token/refresh/'
 		) {
+		    console.log('error refreshing token');
 			window.location.href = 'login';
 			return Promise.reject(error);
 		}
@@ -47,6 +48,7 @@ axiosInstance.interceptors.response.use(
 			const refreshToken = localStorage.getItem('refresh_token');
 
 			if (refreshToken === 'undefined') {
+			    console.log('undefined refresh token');
 			    window.location.href = '/login';
 			}
 

@@ -11,12 +11,14 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Redirect } from "react-router-dom";
+import { Redirect, useLocation } from "react-router-dom";
 import axiosInstance from "../axios";
 import { AuthContext } from "../context";
 
 export default function Login(props) {
     const { authenticated, setAuthenticated } = useContext(AuthContext);
+
+    const location = useLocation();
 
     const [state, setState] = useState({
         email: '',
@@ -42,6 +44,7 @@ export default function Login(props) {
         })
         .catch(error => {
             if (error.response.status === 401) {
+                console.log(error.response);
                 setState({...state, invalidCredentials: true});
             }
         });
@@ -54,20 +57,21 @@ export default function Login(props) {
         });
     }
 
-    if (localStorage.getItem("access_token") != null
-        && localStorage.getItem("refresh_token") != null
-        && localStorage.getItem("access_token") != 'undefined'
-        && localStorage.getItem("refresh_token") != 'undefined'
-    ) {
-        return <Redirect to="/" />
-    }
-
     if (state.redirectToReferrer === true) {
-        return <Redirect to={props.location.state
-        ? props.location.state.referrer
+        return <Redirect to={location.state
+        ? location.state.referrer
         : "/"
         } />;
     }
+
+//    if (localStorage.getItem("access_token") != null
+//        && localStorage.getItem("refresh_token") != null
+//        && localStorage.getItem("access_token") != 'undefined'
+//        && localStorage.getItem("refresh_token") != 'undefined'
+//    ) {
+//        return <Redirect to="/" />
+//    }
+
     return(
         <Container component="main" maxWidth="xs" style={{ marginTop: 60 }}>
             <CssBaseline />

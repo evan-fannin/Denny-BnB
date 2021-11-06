@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23c90b9c-ecb2-4edb-98c3-adaaace4bf85" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/context.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/axios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/homePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/homePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/signout.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/signout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/frontend/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/frontend/main.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/frontend/main.js.LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

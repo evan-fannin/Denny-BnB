@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     BrowserRouter as Router,
     Switch,
@@ -33,6 +33,11 @@ import CardMedia from "@material-ui/core/CardMedia";
 
 export default function HomePage() {
     const [authenticated, setAuthenticated] = useState(false);
+    useEffect(() => {
+        localStorage.getItem('refresh_token') != null ?
+        setAuthenticated(true) :
+        setAuthenticated(false);
+    }, []);
     const value = { authenticated, setAuthenticated }
 
     return (
@@ -84,22 +89,11 @@ export default function HomePage() {
                 </Grid>
                 <Grid item xs={12} align="center">
                     <Button
-                    style={{"border-radius": 50}}
                     color="primary"
                     variant="contained"
                     to="/list"
                     component={Link}>
                     View All Houses
-                    </Button>
-                </Grid>
-                <Grid item xs={12} align="center">
-                    <Button
-                    style={{"border-radius": 50}}
-                    color="primary"
-                    variant="contained"
-                    to="/signout"
-                    component={Link}>
-                    Sign out
                     </Button>
                 </Grid>
             </Grid>
