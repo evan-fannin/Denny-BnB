@@ -10,6 +10,8 @@ import {
 from '@material-ui/core';
 import axiosInstance from "../../axios";
 
+import PageTitle from "../../components/pageTitle";
+
 export default function UserBookings(props) {
     const [bookings, updateBookings] = useState([])
 
@@ -22,15 +24,18 @@ export default function UserBookings(props) {
     }, []);
 
     return (
-        <Grid container spacing={1} style={{overflow: 'auto', marginTop: 60}}>
-            {bookings.map(booking => (
-                    <BookingCard
-                    houseName={booking.house_name}
-                    price={booking.price_per_night}
-                    id={booking.id}
-                    />
-                ))}
-        </Grid>
+        <div>
+            <PageTitle title="Your Bookings" />
+            <Grid container spacing={1} style={{overflow: 'auto', marginTop: 60}}>
+                {bookings.map(booking => (
+                        <BookingCard
+                        houseName={booking.house_name}
+                        price={booking.price_per_night}
+                        id={booking.id}
+                        />
+                    ))}
+            </Grid>
+        </div>
     );
 }
 

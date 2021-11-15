@@ -15,15 +15,13 @@ export default function Header() {
             <div className="header-option-bar">
                 <div className="homepage-button">
                         <Link
+                            className="linkComponent"
                             to="/"
-                            style={{ textDecoration: 'none' }}
                         >
                             Denny B&B
                         </Link>
                 </div>
-                <div className="auth-button">
-                    <LogInOut />
-                </div>
+                <LogInOut style={{width: "7%", height: '50%'}}/>
             </div>
         </div>
     )
@@ -36,9 +34,11 @@ function LogInOut(props) {
     (<Button
         to="/signout"
         linkText="Sign Out"
+        style={props.style}
     />) :
     (<Button
         to="/login"
         linkText="Login"
+        style={props.style}
     />);
 }

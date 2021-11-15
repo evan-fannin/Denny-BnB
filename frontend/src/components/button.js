@@ -3,11 +3,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./components.scss";
 
-export default function Button({ to, linkText }) {
+export default function Button({ to, linkText, style}) {
     return (
-        <div className="button">
+        <div className="button" style={style}>
             <Link
-            style={{'text-decoration': 'none'}}
+            className='linkComponent'
             to={to}>
                 {linkText}
             </Link>

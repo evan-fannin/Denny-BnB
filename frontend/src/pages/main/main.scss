@@ -3,14 +3,17 @@
     display: flex;
     flex-direction: column;
     overflow: auto;
+    background-image: url("/static/images/denny_bnb_homepage_background.jpeg");
+    background-size: cover;
+    flex: 1;
 }
 
 .header {
     display: flex;
     flex-direction: column;
-    height: 13%;
+    height: 10%;
     width: 100%;
-    background-color: gray;
+    background-color: rgb(96, 104, 108);
     box-shadow: 0 2px 5px 0px rgba(100,100,100,.8);
 
     .header-option-bar {
@@ -25,10 +28,11 @@
             flex: 1;
             font-size: 1.5rem;
             font-weight: bold;
-        }
 
-        .auth-button {
-            display: flex;
+            .linkComponent {
+                color: rgb(248,248,255);
+                text-decoration: none;
+            }
         }
     }
 }

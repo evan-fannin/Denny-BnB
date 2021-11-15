@@ -5,17 +5,47 @@
 
 .page-title-container {
     margin: 2rem;
+    padding: 1em;
+    box-sizing: border-box;
     border: 1px solid black;
     text-align: center;
     display: flex;
     flex-direction: column;
+    border-radius: 5px;
 
-    h1 {
-        margin-bottom: 0;
+    h2 {
+        margin-top: 0;
     }
 }
 
 .button {
+    box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(108, 92, 121);
+    display: flex;
+
+    .linkComponent {
+        text-decoration: none;
+        text-align: center;
+        color: ghostwhite;
+    }
+}
+
+.content-card {
+    box-shadow: 2px 2px 3px 0px rgba(0,0,0,.3), -2px -2px 3px 0px rgba(0,0,0,.3);
+    border-radius: 10px;
+    background-color: rgb(64, 84, 75);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 1em 2em;
+    padding: 1em;
+    box-sizing: border-box;
 }
 
 
