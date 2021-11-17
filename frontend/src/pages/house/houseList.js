@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useHistory } from "react-router-dom";
 
 import { Card,
         CardContent
@@ -8,6 +9,11 @@ import Typography from "@material-ui/core/Typography";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import { Link } from "react-router-dom";
+
+import MainContent from "../general/mainContent";
+import ContentCard from "../../components/contentCard";
+import CardLinkArea from "../../components/cardLinkArea";
+import ImageCard from "../../components/imageCard";
 
 import axiosInstance from "../../axios";
 
@@ -55,40 +61,40 @@ export default class HouseList extends Component {
             return (<h1>Loading...</h1>);
         }
         return (
-            <Grid container spacing={1} style={{overflow: 'auto', marginTop: 60}}>
+            <MainContent>
             {this.state.houses.map(house => (
                 <HouseCard
+                key={house.name}
                 name={house.name}
                 price={house.price_per_night}
                 image={this.parseImages(house.images)[0]}
                 />
             ))}
-            </Grid>
+            </MainContent>
         );
     }
 }
 
 function HouseCard(props) {
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.push('/house/' + props.name);
+    };
+
     return(
-        <Grid item xs={12} align="center">
-            <Card>
-                <CardActionArea disableRipple href={"/house/" + props.name}>
-                    <CardContent>
-                        <Typography variant="h5">
-                            {props.name}
-                        </Typography>
-                    </CardContent>
-                    <CardMedia
-                    className="card-image"
-                    style={{height: '30%', width: '30%'}}
-                    component="img"
-                    src={props.image}
-                    />
-                    <CardContent>
-                        ${props.price} per night
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        </Grid>
+        <ContentCard
+        style={{width: '40%', height: '50%', backgroundColor: 'ghostwhite', border: '1px solid rgba(0,0,0,.5)'}}
+        hover={true}>
+            <CardLinkArea onClick={handleClick}>
+                <h3 style={{textAlign: 'center'}}>
+                    {props.name}
+                </h3>
+                <ImageCard src={props.image} style={{width: '100%', height: '70%'}}/>
+                <p style={{textAlign: 'center'}}>
+                    ${parseInt(props.price)} / night
+                </p>
+            </CardLinkArea>
+        </ContentCard>
     );
 }

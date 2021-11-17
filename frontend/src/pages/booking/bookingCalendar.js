@@ -177,7 +177,7 @@ export default class BookingCalendar extends Component {
                 minDetail='month'
                 next2Label={null}
                 prev2Label={null}
-                selectRange="true"
+                selectRange={true}
                 onClickDay={(value, event) => this.handleClickDay(value, event)}
                 onChange={(value, event) => this.handleChange(value, event)}
                 tileDisabled={this.tileDisabled}

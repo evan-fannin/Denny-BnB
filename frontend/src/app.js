@@ -23,7 +23,7 @@ import Login from "./pages/user/login";
 import SignOut from "./pages/user/signout";
 import PrivateRoute from "./auth/privateRoute";
 import Header from "./pages/main/header";
-import HomePage from "./pages/main/homepage";
+import HomePage from "./pages/general/homepage";
 
 import { AuthContext } from "./context";
 

@@ -4,6 +4,10 @@ import Grid from "@material-ui/core/Grid";
 import BookingCalendar from "../booking/bookingCalendar";
 import { Button, Container } from "@material-ui/core";
 
+import ContentCard from "../../components/contentCard";
+import LayoutContainer from "../../components/layoutContainer";
+import MainContent from "../general/mainContent";
+
 export default class HouseDetail extends Component {
     constructor(props) {
         super(props);
@@ -63,38 +67,38 @@ export default class HouseDetail extends Component {
             images.push({url: this.state.images[i]})
         }
         return (
-            <>
-                <Container component="main" xs={12} style={{marginTop: 60, overflow: 'auto'}}>
-                    <div>
-                        <Grid container spacing={1}>
-                            <Grid item xs={12} align="center">
-                                <h1>{this.state.name}</h1>
-                                <p>{this.state.address}</p>
-                                <p>{"$" + parseInt(this.state.price).toString() + " per night"}</p>
+            <MainContent>
+                <ContentCard style={{backgroundColor: "white", width: "50%"}}>
+                    <h1>{this.state.name}</h1>
+                </ContentCard>
+                <ContentCard style={{backgroundColor: "ghostwhite"}}>
+                    <SimpleImageSlider
+                    width={896}
+                    height={504}
+                    images={images}
+                    showNavs
+                    showBullets
+                    style={{position: "relative", borderRadius: 20}}
+                    />
+                </ContentCard>
+                <LayoutContainer style={{justifyContent: "flex-end", alignItems: 'center'}}>
+                    <ContentCard style={{flex: "1"}}>
+                        <h2>About This House</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum scelerisque ex, et mattis nunc efficitur ut. Etiam vitae sodales velit. Suspendisse rutrum lorem non augue ultricies efficitur. Quisque porttitor arcu at sapien porttitor mattis. Suspendisse eu bibendum nunc, ac tincidunt purus. Mauris et sapien eu sapien pretium laoreet. Donec ut consequat neque. Morbi vitae tristique orci. Fusce sit amet pulvinar lectus, et interdum velit. Vivamus imperdiet consectetur gravida. Nullam ac elit vel nisl vulputate vestibulum.
 
-                            </Grid>
-                            <Grid item xs={12} align="center">
-                                <SimpleImageSlider
-                                width={896}
-                                height={504}
-                                images={images}
-                                showNavs
-                                showBullets
-                                style={{position: "relative"}}
-                                />
-                            </Grid>
-                        </Grid>
-                        <Grid container spacing={1} justify="flex-end">
-                            <Grid item>
-                                <BookingCalendar
-                                houseName={this.houseName}
-                                handleRedirect={(startDate, endDate) => this.handleRedirectToBooking(startDate, endDate)}
-                                />
-                            </Grid>
-                        </Grid>
-                    </div>
-                </Container>
-            </>
+Sed volutpat vulputate turpis, eu viverra dui vulputate ut. Sed tristique eleifend faucibus. Praesent lacus felis, rhoncus et tempus dapibus, laoreet vitae sem. Praesent quis ex et ante vehicula vehicula vel lobortis dolor. Mauris finibus commodo elit, fermentum suscipit nisl mollis in. Pellentesque est dolor, pharetra pellentesque mi sed, maximus pretium purus. Nunc orci nisi, feugiat bibendum venenatis a, semper ac ipsum. Nunc eu lacinia metus, non semper tortor.</p>
+                    </ContentCard>
+                    <ContentCard style={{height: '80%', backgroundColor: 'ghostwhite', border: '1px solid black'}}>
+                        <h3>
+                            Choose Your Dates
+                        </h3>
+                        <BookingCalendar
+                        houseName={this.houseName}
+                        handleRedirect={(startDate, endDate) => this.handleRedirectToBooking(startDate, endDate)}
+                        />
+                    </ContentCard>
+                </LayoutContainer>
+            </MainContent>
         );
     }
 }
