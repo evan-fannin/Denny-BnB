@@ -22,9 +22,10 @@ export default function HomePage() {
                     <PageTitle title={"Denny B&B"} subtitle={"Like Airbnb But Shittier \u2122"} style={{color: 'ghostwhite'}}/>
                     <Button
                         to={"/list"}
-                        linkText={"View All Houses"}
-                        style={{height: "30px", width: "150px"}}
-                    />
+                        style={{height: "30px"}}
+                    >
+                    View All Houses
+                    </Button>
                </ContentCard>
         </div>
     );

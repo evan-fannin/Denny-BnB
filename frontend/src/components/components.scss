@@ -24,7 +24,8 @@
     }
 }
 
-.button {
+.button-link {
+    width: fit-content;
     box-sizing: border-box;
     border: 1px solid;
     border-radius: 5px;
@@ -33,12 +34,24 @@
     align-items: center;
     background-color: rgb(108, 92, 121);
     display: flex;
+    transition: all .1s ease-in-out;
 
     .linkComponent {
         text-decoration: none;
         text-align: center;
         color: ghostwhite;
     }
+}
+
+.button-submit {
+    width: fit-content;
+    height: fit-content;
+}
+
+.button-link:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .content-card-no-hover {

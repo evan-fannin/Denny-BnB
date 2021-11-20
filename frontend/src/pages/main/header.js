@@ -21,7 +21,7 @@ export default function Header() {
                             Denny B&B
                         </Link>
                 </div>
-                <LogInOut style={{width: "7%", height: '50%'}}/>
+                <LogInOut style={{height: '50%'}}/>
             </div>
         </div>
     )
@@ -31,14 +31,20 @@ function LogInOut(props) {
     const { authenticated, setAuthenticated } = useContext(AuthContext);
 
     return authenticated ?
-    (<Button
-        to="/signout"
-        linkText="Sign Out"
-        style={props.style}
-    />) :
-    (<Button
-        to="/login"
-        linkText="Login"
-        style={props.style}
-    />);
+    (
+        <Button
+            to="/signout"
+            style={props.style}
+        >
+        Sign Out
+        </Button>
+    ) :
+    (
+        <Button
+            to="/login"
+            style={props.style}
+        >
+        Login
+        </Button>
+    );
 }
