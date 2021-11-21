@@ -1,16 +1,11 @@
 import React, { Component } from "react";
-//MaterialUI
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+
+import { Link } from 'react-router-dom';
+
+import MainContent from "../general/mainContent";
+import Button from "../../components/button";
+import LayoutContainer from "../../components/layoutContainer";
+import ContentCard from "../../components/contentCard";
 
 
 export default class SignUp extends Component {
@@ -53,94 +48,70 @@ export default class SignUp extends Component {
 
     render() {
         return (
-            <Container component="main" maxWidth="xs" style={{ marginTop: 60 }}>
-                <CssBaseline />
-                <div>
-                    <Grid container spacing={1}>
-                        <Grid item align="center" xs={12}>
-                            <Avatar color="primary" justify='center'></Avatar>
-                        </Grid>
-                    </Grid>
-
-                    <Typography component="h1" variant="h5">
-                        Sign up
-                    </Typography>
-                    <form noValidate>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                                <TextField
-                                    variant="outlined"
-                                    required
-                                    fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    autoComplete="email"
-                                    onChange={(e) => this.handleChange(e)}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    variant="outlined"
-                                    required
-                                    fullWidth
-                                    id="firstName"
-                                    label="First Name"
-                                    name="firstName"
-                                    autoComplete="first name"
-                                    onChange={(e) => this.handleChange(e)}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    variant="outlined"
-                                    required
-                                    fullWidth
-                                    id="lastName"
-                                    label="Last Name"
-                                    name="lastName"
-                                    autoComplete="last name"
-                                    onChange={(e) => this.handleChange(e)}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    variant="outlined"
-                                    required
-                                    fullWidth
-                                    name="password"
-                                    label="Password"
-                                    type="password"
-                                    id="password"
-                                    autoComplete="current-password"
-                                    onChange={(e) => this.handleChange(e)}
-                                />
-                            </Grid>
-                        </Grid>
-                        <Grid container spacing={3}>
-                            <Grid item xs={12}>
-                                <Button
-                                    type="submit"
-                                    variant="contained"
-                                    fullWidth
-                                    color="primary"
-                                    onClick={(e) => this.handleSubmit(e)}
-                                >
-                                    Sign Up
-                                </Button>
-                            </Grid>
-                        </Grid>
-
-                        <Grid container justify="flex-end">
-                            <Grid item>
-                                <Link href="/login" variant="body2">
-                                    Already have an account? Sign in
-                                </Link>
-                            </Grid>
-                        </Grid>
-                    </form>
-                </div>
-		    </Container>
+            <MainContent>
+            <ContentCard style={{width: '60%',
+            backgroundColor: 'white',
+            border: '1px solid rgb(64, 84, 75)'}}>
+                <h1>
+                    Sign Up
+                </h1>
+                <form className="form" noValidate>
+                    <label>
+                    First Name
+                        <input
+                            required
+                            id="firstName"
+                            label="First Name"
+                            name="firstName"
+                            autoFocus
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </label>
+                    <label>
+                    Last Name
+                        <input
+                            required
+                            id="lastName"
+                            label="Last Name"
+                            name="lastName"
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </label>
+                    <label>
+                    Email
+                        <input
+                            required
+                            id="email"
+                            label="Email Address"
+                            name="email"
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </label>
+                    <label>
+                    Password
+                        <input
+                            required
+                            name="password"
+                            label="Password"
+                            type="password"
+                            id="password"
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </label>
+                    <Button
+                        style={{width: '100%'}}
+                        onClick={(e) => handleSubmit(e)}
+                    >
+                        Sign Up
+                    </Button>
+                    <LayoutContainer style={{justifyContent: 'right'}}>
+                        <Link style={{color: 'black'}} to="/login" variant="body2">
+                            Already have an account? Login
+                        </Link>
+                    </LayoutContainer>
+                </form>
+            </ContentCard>
+        </MainContent>
         );
     }
 }

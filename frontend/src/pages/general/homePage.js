@@ -19,7 +19,11 @@ export default function HomePage() {
     return (
         <div className="home-page">
                <ContentCard style={{width: "60%"}}>
-                    <PageTitle title={"Denny B&B"} subtitle={"Like Airbnb But Shittier \u2122"} style={{color: 'ghostwhite'}}/>
+                    <PageTitle
+                    title={"Denny B&B"}
+                    subtitle={"Like Airbnb But Shittier \u2122"}
+                    style={{color: 'ghostwhite'}}
+                    />
                     <Button
                         to={"/list"}
                         style={{height: "30px"}}

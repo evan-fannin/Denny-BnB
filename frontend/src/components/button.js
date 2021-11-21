@@ -5,6 +5,7 @@ import "./components.scss";
 
 export default function Button(props) {
     const isLink = props.to ? true : false
+    console.log(props.children);
 
     return isLink ?
     (
@@ -12,6 +13,7 @@ export default function Button(props) {
             <Link
             className='linkComponent'
             to={props.to}>
+                {console.log(props.children)}
                 {props.children}
             </Link>
         </div>

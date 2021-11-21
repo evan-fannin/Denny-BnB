@@ -46,6 +46,23 @@
 .button-submit {
     width: fit-content;
     height: fit-content;
+    box-sizing: border-box;
+    background-color: rgb(108, 92, 121);
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    transition: all .1s ease-in-out;
+    color: ghostwhite;
+    font-size: 16px;
+    padding: 15px 0 15px 0;
+    margin: 5px 0 5px 0;
+}
+
+.button-submit:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .button-link:hover {
