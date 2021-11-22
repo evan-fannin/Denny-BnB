@@ -1,54 +1,56 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import MainContent from "../general/mainContent";
 import Button from "../../components/button";
 import LayoutContainer from "../../components/layoutContainer";
 import ContentCard from "../../components/contentCard";
 
+import axiosInstance from "../../axios";
 
-export default class SignUp extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            firstName: '',
-            lastName: '',
-            password: ''
-        };
-    }
 
-    handleChange(e) {
-        this.setState({
+export default function SignUp(props) {
+
+    const history = useHistory();
+
+    const [state, setState] = useState({
+        email: '',
+        firstName: '',
+        lastName: '',
+        password: '',
+    });
+
+
+
+    const handleChange = (e) => {
+        setState({
+            ...state,
             [e.target.name]: e.target.value.trim()
         });
     }
 
-    handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('email', this.state.email);
-        formData.append('first_name', this.state.firstName);
-        formData.append('last_name', this.state.lastName);
-        formData.append('password', this.state.password);
+        formData.append('email', state.email);
+        formData.append('first_name', state.firstName);
+        formData.append('last_name', state.lastName);
+        formData.append('password', state.password);
         const request = {
             method: "POST",
             body: formData
         };
 
-        fetch("/api/users/signup/", request)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            this.props.history.push("/login/")
+        axiosInstance.post("users/signup/", request)
+        .then(response => {
+            console.log(response.data);
+            history.push("/login/")
         })
         .catch(error => console.log(error));
     }
-
-    render() {
-        return (
-            <MainContent>
+    return (
+        <MainContent>
             <ContentCard style={{width: '60%',
             backgroundColor: 'white',
             border: '1px solid rgb(64, 84, 75)'}}>
@@ -59,6 +61,7 @@ export default class SignUp extends Component {
                     <label>
                     First Name
                         <input
+                            autoComplete="given-name"
                             required
                             id="firstName"
                             label="First Name"
@@ -70,6 +73,7 @@ export default class SignUp extends Component {
                     <label>
                     Last Name
                         <input
+                            autoComplete="family-name"
                             required
                             id="lastName"
                             label="Last Name"
@@ -80,6 +84,7 @@ export default class SignUp extends Component {
                     <label>
                     Email
                         <input
+                            autoComplete="email"
                             required
                             id="email"
                             label="Email Address"
@@ -90,6 +95,7 @@ export default class SignUp extends Component {
                     <label>
                     Password
                         <input
+                            autoComplete="new-password"
                             required
                             name="password"
                             label="Password"
@@ -112,6 +118,5 @@ export default class SignUp extends Component {
                 </form>
             </ContentCard>
         </MainContent>
-        );
-    }
+    );
 }

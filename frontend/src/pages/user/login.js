@@ -40,7 +40,7 @@ export default function Login(props) {
 			setState({...state, invalidCredentials: false, redirectToReferrer: true});
         })
         .catch(error => {
-            if (error.response.status === 401) {
+            if (error.response.status === 401 || error.response.status === 400) {
                 console.log(error.response);
                 setState({...state, invalidCredentials: true});
             }
@@ -81,6 +81,7 @@ export default function Login(props) {
                     <label>
                     Email
                         <input
+                            autoComplete="email"
                             required
                             id="email"
                             label="Email Address"
@@ -92,6 +93,7 @@ export default function Login(props) {
                     <label>
                     Password
                         <input
+                            autoComplete="current-password"
                             required
                             name="password"
                             label="Password"

@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import Calendar from "react-calendar";
-import 'react-calendar/dist/Calendar.css';
-import Button from "@material-ui/core/Button";
+
 import Grid from "@material-ui/core/Grid";
+
+import Button from "../../components/button";
+
+import './calendar.scss';
 
 
 export default class BookingCalendar extends Component {
@@ -131,6 +134,12 @@ export default class BookingCalendar extends Component {
 
     // Not an efficient function!
     tileDisabled = ({activeStartDate, date, view}) => {
+        const dateToday = new Date();
+
+        if (date.valueOf() < dateToday.valueOf()) {
+            return true;
+        }
+
         for (let i = 0; i < this.state.disabledDates.length; i++) {
             let disabledDate = this.state.disabledDates[i];
 
@@ -183,9 +192,8 @@ export default class BookingCalendar extends Component {
                 tileDisabled={this.tileDisabled}
                 />
                 <Button
-                color="primary"
-                variant="contained"
-                onClick={() => this.handleSubmitDates()}>
+                onClick={() => this.handleSubmitDates()}
+                >
                 Reserve
                 </Button>
             </Grid>
