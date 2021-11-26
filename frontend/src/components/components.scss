@@ -17,7 +17,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
+    border-radius: 10px;
 
     h2 {
         margin-top: 0;
@@ -72,10 +72,10 @@
 }
 
 .content-card-no-hover {
+    height: fit-content;
     border-radius: 10px;
     background-color: rgb(64, 84, 75);
     align-items: center;
-    justify-content: center;
     display: flex;
     flex-direction: column;
     margin: 1em 2em;
@@ -84,11 +84,11 @@
 }
 
 .content-card {
+    height: fit-content;
     transition: all .15s ease-in-out;
     border-radius: 10px;
     background-color: rgb(64, 84, 75);
     align-items: center;
-    justify-content: center;
     display: flex;
     flex-direction: column;
     margin: 1em 2em;

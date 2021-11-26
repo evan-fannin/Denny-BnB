@@ -1,6 +1,14 @@
 import React, { Component } from "react";
-import { Button } from "@material-ui/core";
-import axiosInstance from "../../axios"
+import axiosInstance from "../../axios";
+
+import MainContent from "../general/mainContent";
+import ContentCard from "../../components/contentCard";
+import PageTitle from "../../components/pageTitle";
+import ImageCard from "../../components/imageCard";
+import Button from "../../components/button";
+import LayoutContainer from "../../components/layoutContainer";
+
+import "./booking.scss";
 
 
 
@@ -27,22 +35,57 @@ export default class ReservationPage extends Component{
     }
 
     render() {
+        const checkInDate = parseDateString(this.props.location.state.startDate);
+        const checkOutDate = parseDateString(this.props.location.state.endDate);
+
         return (
-            <div>
-                <h1>Confirm your reservation</h1>
-                <p>House: {this.props.location.state.name}</p>
-                <p>Price Per Night: ${this.props.location.state.price}</p>
-                <p>Dates: {this.props.location.state.startDate.toString()}</p>
-                <p>to</p>
-                <p>{this.props.location.state.endDate.toString()}</p>
-                <p>Total Price: ${parseFloat(this.props.location.state.price) *
-                (this.props.location.state.endDate - this.props.location.state.startDate) /
-                (1000 * 60 * 60 * 24)}</p>
-                <Button onClick={(e) => this.handleSubmit(e)}>
-                    Reserve Now
-                </Button>
-            </div>
+            <MainContent>
+                <LayoutContainer style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                    <PageTitle style={{backgroundColor: 'white', height: 'fit-content', marginRight: 150}} title="Confirm Your Reservation"/>
+                    <ContentCard style={{border: '1px solid black', width: '550px'}}>
+
+                        <h1>{this.props.location.state.name}</h1>
+                        <ImageCard src={this.props.location.state.images[0]} style={{height: 150}} />
+                        <div className='info-item'>
+                            <h3>Check In:</h3>
+                            <p>{checkInDate}</p>
+                        </div>
+                        <div className='info-item'>
+                            <h3>Check Out:</h3>
+                            <p>{checkOutDate}</p>
+                        </div>
+                        <div className='info-item'>
+                            <h3>Total Price:</h3>
+                            <p>
+                            ${parseFloat(this.props.location.state.price) *
+                            (this.props.location.state.endDate - this.props.location.state.startDate) /
+                            (1000 * 60 * 60 * 24)}
+                            </p>
+                        </div>
+                        <Button style={{border: '1px solid black'}} onClick={(e) => this.handleSubmit(e)}>
+                            Reserve Now
+                        </Button>
+                    </ContentCard>
+                </LayoutContainer>
+            </MainContent>
 
         );
     }
+}
+
+function parseDateString(date) {
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+    const namedDay = dayNames[date.getDay()];
+    const month = monthNames[date.getMonth()];
+    const day = date.getDate().toString();
+
+
+
+
+    return (
+        namedDay.concat(', ', month, ' ', day)
+    );
 }

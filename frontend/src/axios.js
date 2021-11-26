@@ -36,7 +36,7 @@ axiosInstance.interceptors.response.use(
 			originalRequest.url === baseURL + 'token/refresh/'
 		) {
 		    console.log('error refreshing token');
-			window.location.href = 'login';
+			window.location.href = '/signout';
 			return Promise.reject(error);
 		}
 
@@ -49,7 +49,7 @@ axiosInstance.interceptors.response.use(
 
 			if (refreshToken === 'undefined') {
 			    console.log('undefined refresh token');
-			    window.location.href = '/login';
+			    window.location.href = '/signout';
 			}
 
 			if (refreshToken) {
@@ -78,11 +78,11 @@ axiosInstance.interceptors.response.use(
 						});
 				} else {
 					console.log('Refresh token is expired', tokenParts.exp, now);
-					window.location.href = '/login';
+					window.location.href = '/signout';
 				}
 			} else {
 				console.log('Refresh token not available.');
-				window.location.href = '/login';
+				window.location.href = '/signout';
 			}
 		}
 

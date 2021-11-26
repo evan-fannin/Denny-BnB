@@ -51,7 +51,7 @@ export default function SignUp(props) {
     }
     return (
         <MainContent>
-            <ContentCard style={{width: '60%',
+            <ContentCard style={{width: '50%',
             backgroundColor: 'white',
             border: '1px solid rgb(64, 84, 75)'}}>
                 <h1>

@@ -7,6 +7,7 @@ import { Button, Container } from "@material-ui/core";
 import ContentCard from "../../components/contentCard";
 import LayoutContainer from "../../components/layoutContainer";
 import MainContent from "../general/mainContent";
+import PageTitle from "../../components/pageTitle";
 
 export default class HouseDetail extends Component {
     constructor(props) {
@@ -68,9 +69,7 @@ export default class HouseDetail extends Component {
         }
         return (
             <MainContent>
-                <ContentCard style={{backgroundColor: "white", width: "50%"}}>
-                    <h1>{this.state.name}</h1>
-                </ContentCard>
+                <PageTitle title={this.state.name} style={{width: '50%'}} />
                 <ContentCard style={{backgroundColor: "ghostwhite"}}>
                     <SimpleImageSlider
                     width={896}
@@ -88,7 +87,11 @@ export default class HouseDetail extends Component {
 
 Sed volutpat vulputate turpis, eu viverra dui vulputate ut. Sed tristique eleifend faucibus. Praesent lacus felis, rhoncus et tempus dapibus, laoreet vitae sem. Praesent quis ex et ante vehicula vehicula vel lobortis dolor. Mauris finibus commodo elit, fermentum suscipit nisl mollis in. Pellentesque est dolor, pharetra pellentesque mi sed, maximus pretium purus. Nunc orci nisi, feugiat bibendum venenatis a, semper ac ipsum. Nunc eu lacinia metus, non semper tortor.</p>
                     </ContentCard>
-                    <ContentCard style={{height: '80%', backgroundColor: 'ghostwhite', border: '1px solid black'}}>
+                    <ContentCard style={{height: 'fit-content',
+                    backgroundColor: 'ghostwhite',
+                    border: '1px solid black',
+                    paddingTop: 0,
+                    paddingBottom: 0}}>
                         <h3>
                             Choose Your Dates
                         </h3>

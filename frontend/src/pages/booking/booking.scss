@@ -1,0 +1,15 @@
+.info-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 4em;
+    box-sizing: border-box;
+
+    h3 {
+        flex: 1;
+    }
+
+    p {
+        justify: right;
+    }
+}

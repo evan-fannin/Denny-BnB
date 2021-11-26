@@ -24,8 +24,10 @@ export default function UserBookings(props) {
     }, []);
 
     return (
-        <div>
-            <PageTitle title="Your Bookings" />
+        <ContentCard
+        style={{width: '40%', height: '50%', backgroundColor: 'ghostwhite', border: '1px solid rgba(0,0,0,.5)'}}
+        hover={true}>
+            <PageTitle title="Your Trips" />
             <Grid container spacing={1} style={{overflow: 'auto', marginTop: 60}}>
                 {bookings.map(booking => (
                         <BookingCard
@@ -35,7 +37,7 @@ export default function UserBookings(props) {
                         />
                     ))}
             </Grid>
-        </div>
+        </ContentCard>
     );
 }
 
