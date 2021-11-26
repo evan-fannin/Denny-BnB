@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23c90b9c-ecb2-4edb-98c3-adaaace4bf85" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/helperFunctions/parseDateString.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/components.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/components.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/booking/booking.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/booking/booking.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/booking/bookingDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/booking/bookingDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/booking/reservationPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/booking/reservationPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/general/mainContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/general/mainContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/house/houseDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/house/houseDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/user/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/user/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/user/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/user/signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/booking/userBookings.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/booking/userBookings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/house/houseList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/house/houseList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/frontend/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/static/frontend/main.js.LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/frontend/main.js.LICENSE.txt" afterDir="false" />
     </list>

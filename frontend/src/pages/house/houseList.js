@@ -14,6 +14,7 @@ import MainContent from "../general/mainContent";
 import ContentCard from "../../components/contentCard";
 import CardLinkArea from "../../components/cardLinkArea";
 import ImageCard from "../../components/imageCard";
+import PageTitle from "../../components/pageTitle";
 
 import axiosInstance from "../../axios";
 
@@ -62,6 +63,7 @@ export default class HouseList extends Component {
         }
         return (
             <MainContent>
+            <PageTitle title='All Houses' />
             {this.state.houses.map(house => (
                 <HouseCard
                 key={house.name}
@@ -81,6 +83,8 @@ function HouseCard(props) {
     const handleClick = () => {
         history.push('/house/' + props.name);
     };
+
+    console.log(props.image);
 
     return(
         <ContentCard

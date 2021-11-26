@@ -19,6 +19,7 @@ class Booking(models.Model):
     end_date = models.CharField(max_length=100)
     price_per_night = models.DecimalField(max_digits=10, decimal_places=2)
     house_name = models.CharField(max_length=100)
+    thumbnail = models.ImageField(upload_to='frontend/static/images', default='frontend/static/images/default.png')
     house = models.ForeignKey(House, related_name='bookings', on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, related_name='bookings', on_delete=models.CASCADE)
 

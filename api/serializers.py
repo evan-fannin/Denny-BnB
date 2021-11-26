@@ -5,7 +5,7 @@ from api.models import House, HouseImage, Booking
 class CreateBookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = ['start_date', 'end_date', 'price_per_night', 'house_name']
+        fields = ['start_date', 'end_date', 'price_per_night', 'house_name', 'thumbnail']
 
     def create(self, validated_data):
         house_name = validated_data.get('house_name')
@@ -38,7 +38,7 @@ class CalendarBookingSerializer(serializers.ModelSerializer):
 class UserBookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = ['id', 'start_date', 'end_date', 'price_per_night', 'house_name']
+        fields = ['id', 'start_date', 'end_date', 'price_per_night', 'house_name', 'thumbnail']
 
 
 class CreateHouseImageSerializer(serializers.ModelSerializer):

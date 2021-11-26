@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import {
     Card,
     CardContent,
@@ -10,6 +11,10 @@ import {
 from '@material-ui/core';
 import axiosInstance from "../../axios";
 
+import MainContent from "../general/mainContent";
+import ContentCard from "../../components/contentCard";
+import CardLinkArea from "../../components/cardLinkArea";
+import ImageCard from "../../components/imageCard";
 import PageTitle from "../../components/pageTitle";
 
 export default function UserBookings(props) {
@@ -18,50 +23,44 @@ export default function UserBookings(props) {
     useEffect(() => {
         axiosInstance.get('get-user-bookings/')
         .then(response => {
-            console.log(response.data);
             updateBookings(response.data)
         });
     }, []);
 
     return (
-        <ContentCard
-        style={{width: '40%', height: '50%', backgroundColor: 'ghostwhite', border: '1px solid rgba(0,0,0,.5)'}}
-        hover={true}>
+        <MainContent>
             <PageTitle title="Your Trips" />
-            <Grid container spacing={1} style={{overflow: 'auto', marginTop: 60}}>
                 {bookings.map(booking => (
-                        <BookingCard
-                        houseName={booking.house_name}
-                        price={booking.price_per_night}
-                        id={booking.id}
-                        />
-                    ))}
-            </Grid>
-        </ContentCard>
+                    <BookingCard
+                    houseName={booking.house_name}
+                    price={booking.price_per_night}
+                    id={booking.id}
+                    image={booking.thumbnail.slice(9)}
+                    />
+                ))}
+        </MainContent>
     );
 }
 
 function BookingCard(props) {
+    const history = useHistory();
+
+    const handleClick = (e) => {
+        history.push("/user-bookings/" + props.id + "/");
+    };
     return (
-        <Grid item xs={12} align="center">
-            <Card>
-                <CardActionArea disableRipple href={"/user-bookings/" + props.id + "/"}>
-                    <CardContent>
-                        <Typography variant="h5">
-                            {props.houseName}
-                        </Typography>
-                    </CardContent>
-                    <CardMedia
-                    className="card-image"
-                    style={{height: '30%', width: '30%'}}
-                    component="img"
-                    src={"/static/images/colville_1.jpeg"}
-                    />
-                    <CardContent>
-                        ${props.price} per night
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        </Grid>
+        <ContentCard
+        style={{width: '40%', height: '50%', backgroundColor: 'ghostwhite', border: '1px solid rgba(0,0,0,.5)'}}
+        hover={true}>
+            <CardLinkArea onClick={handleClick}>
+                <h3 style={{textAlign: 'center'}}>
+                    {props.houseName}
+                </h3>
+                <ImageCard src={props.image} style={{width: '100%', height: '70%'}}/>
+                <p style={{textAlign: 'center'}}>
+                    ${parseInt(props.price)} / night
+                </p>
+            </CardLinkArea>
+        </ContentCard>
     );
 }
