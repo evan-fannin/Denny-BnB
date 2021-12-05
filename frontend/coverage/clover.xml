@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1638651314618" clover="3.2.0">
-  <project timestamp="1638651314618" name="All files">
-    <metrics statements="10" coveredstatements="5" conditionals="12" coveredconditionals="2" methods="7" coveredmethods="4" elements="29" coveredelements="11" complexity="0" loc="10" ncloc="10" packages="4" files="7" classes="7"/>
+<coverage generated="1638738641224" clover="3.2.0">
+  <project timestamp="1638738641224" name="All files">
+    <metrics statements="13" coveredstatements="13" conditionals="12" coveredconditionals="11" methods="10" coveredmethods="10" elements="35" coveredelements="34" complexity="0" loc="13" ncloc="13" packages="4" files="10" classes="10"/>
     <package name="frontend">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="styleMock.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/styleMock.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
       </file>
     </package>
     <package name="frontend.src.auth">
@@ -18,20 +18,32 @@
       </file>
     </package>
     <package name="frontend.src.components">
-      <metrics statements="5" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="8" coveredstatements="8" conditionals="10" coveredconditionals="9" methods="6" coveredmethods="6"/>
       <file name="button.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/components/button.js">
-        <metrics statements="2" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
+        <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="7" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="2" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="cardLinkArea.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/components/cardLinkArea.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
       </file>
       <file name="contentCard.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/components/contentCard.js">
-        <metrics statements="2" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="7" count="0" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="2" type="stmt"/>
+      </file>
+      <file name="imageCard.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/components/imageCard.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+      <file name="layoutContainer.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/components/layoutContainer.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
       </file>
       <file name="pageTitle.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/components/pageTitle.js">
-        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
+        <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="5" count="2" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="frontend.src.pages.general">

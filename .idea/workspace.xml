@@ -2,23 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23c90b9c-ecb2-4edb-98c3-adaaace4bf85" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/auth/privateRoute.unit.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/general/mainContent.unit.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/button.unit.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/cardLinkArea.unit.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/contentCard.unit.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/imageCard.unit.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/layoutContainer.unit.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/pageTitle.unit.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/clover.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/clover.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/coverage-final.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/coverage-final.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/auth/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/auth/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/auth/privateRoute.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/auth/privateRoute.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/button.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/button.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/contentCard.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/contentCard.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/pageTitle.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/pageTitle.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/general/homePage.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/general/homePage.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/general/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/general/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/general/mainContent.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/general/mainContent.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/styleMock.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/styleMock.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov.info" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/general/homePage.unit.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/general/homePage.unit.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
