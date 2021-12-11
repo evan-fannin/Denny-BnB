@@ -3,6 +3,8 @@ import Calendar from "react-calendar";
 
 import Grid from "@material-ui/core/Grid";
 
+import axiosInstance from '../../axios';
+
 import Button from "../../components/button";
 
 import './calendar.scss';
@@ -21,36 +23,11 @@ export default class BookingCalendar extends Component {
         this.houseName = this.props.houseName;
     }
 
-    componentDidMount() {
-        fetch("/api/get-bookings?houseName=" + this.houseName)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            this.setState({disabledDates: this.generateBookedDates(data)});
-        });
-    }
-
-    generateBookedDates(data) {
-        const bookedDates = []
-        for (let i = 0; i < data.length; i++) {
-            const startDate = new Date(data[i]['start_date']);
-            const endDate = new Date(data[i]['end_date']);
-            var iterDate = new Date(startDate.valueOf());
-            const bookedRange = [];
-            bookedRange.push(startDate);
-
-            while (iterDate < endDate) {
-                iterDate.setDate(iterDate.getDate() + 1);
-                const date = new Date(iterDate.valueOf());
-                bookedRange.push(date);
-            }
-            bookedRange.push(endDate);
-            bookedDates.push(...bookedRange);
-        }
-
-        return (bookedDates.sort((a, b) => {
-                return a - b;
-            }));
+    async componentDidMount() {
+        const response = await axiosInstance.get("/get-bookings?houseName=" + this.houseName);
+        const data = response.data;
+        console.log(data);
+        this.setState({disabledDates: this.generateBookedDates(data)});
     }
 
     handleSubmitDates() {
@@ -82,9 +59,7 @@ export default class BookingCalendar extends Component {
         if (this.state.firstClick === true) {
             this.setState({startDate: value,
             nextBookedDate: this.getNextBookedDate(value),
-            endDate: null}, () => {
-                console.log("startDate: " + this.state.startDate);
-            });
+            endDate: null});
         }
         else {
             if (this.state.nextBookedDate != null && value > this.state.nextBookedDate) {
@@ -92,12 +67,51 @@ export default class BookingCalendar extends Component {
                 "Please select a valid range.");
             }
             else {
-                this.setState({endDate: value}, () => {
-                    console.log("endDate: " + this.state.endDate);
-                });
+                this.setState({endDate: value});
             }
         }
         this.setState({firstClick: !this.state.firstClick})
+    }
+
+    parseMonth(string) {
+        const abbreviations = {
+            "Jan": 1,
+            "Feb": 2,
+            "Mar": 3,
+            "Apr": 4,
+            "May": 5,
+            "Jun": 6,
+            "Jul": 7,
+            "Aug": 8,
+            "Sep": 9,
+            "Oct": 10,
+            "Nov": 11,
+            "Dec": 12
+        }
+
+        return abbreviations[string].toString()
+    }
+
+    generateBookedDates(data) {
+        const bookedDates = []
+        for (let i = 0; i < data.length; i++) {
+            const startDate = new Date(data[i]['start_date']);
+            const endDate = new Date(data[i]['end_date']);
+            var iterDate = new Date(startDate.valueOf());
+            const bookedRange = [];
+            bookedRange.push(startDate);
+
+            while (iterDate < endDate) {
+                iterDate.setDate(iterDate.getDate() + 1);
+                const date = new Date(iterDate.valueOf());
+                bookedRange.push(date);
+            }
+            bookedDates.push(...bookedRange);
+        }
+
+        return (bookedDates.sort((a, b) => {
+                return a - b;
+            }));
     }
 
     getNextBookedDate(clickedDate) {
@@ -111,7 +125,7 @@ export default class BookingCalendar extends Component {
         return nextBookedDate;
     }
 
-    handleChange(value, event) {
+//    handleChange(value, event) {
 //        const [startYear, startMonth, startDay] = this.parseDate(value[0])
 //        const [endYear, endMonth, endDay] = this.parseDate(value[1])
 //
@@ -121,16 +135,16 @@ export default class BookingCalendar extends Component {
 //            startDate: [startYear, startMonth, startDay],
 //            endDate: [endYear, endMonth, endDay]
 //        });
-    }
+//    }
 
-    parseDate(dateObject) {
+//    parseDate(dateObject) {
 
 //        const stringArray = dateObject.toString().split(" ");
 //        const year = stringArray[3];
 //        const month = this.parseMonth(stringArray[1]);
 //        const day = stringArray[2];
 //        return new Date(year, month - 1, day);
-    }
+//    }
 
     // Not an efficient function!
     tileDisabled = ({activeStartDate, date, view}) => {
@@ -159,25 +173,6 @@ export default class BookingCalendar extends Component {
 //        }
     }
 
-    parseMonth(string) {
-        const abbreviations = {
-            "Jan": 1,
-            "Feb": 2,
-            "Mar": 3,
-            "Apr": 4,
-            "May": 5,
-            "Jun": 6,
-            "Jul": 7,
-            "Aug": 8,
-            "Sep": 9,
-            "Oct": 10,
-            "Nov": 11,
-            "Dec": 12
-        }
-
-        return abbreviations[string].toString()
-    }
-
     render() {
         return(
         <Grid container spacing={1}>
@@ -188,7 +183,6 @@ export default class BookingCalendar extends Component {
                 prev2Label={null}
                 selectRange={true}
                 onClickDay={(value, event) => this.handleClickDay(value, event)}
-                onChange={(value, event) => this.handleChange(value, event)}
                 tileDisabled={this.tileDisabled}
                 />
                 <Button

@@ -16,13 +16,13 @@ it('renders a hoverable card correctly', () => {
     </ContentCard>));
 
     expect(shallowWrapper.containsMatchingElement(mockChild)).toBe(true);
-    expect(shallowWrapper.find('div.content-card').isEmpty()).toBe(false);
+    expect(shallowWrapper.find('div.content-card').exists()).toBe(true);
     shallowWrapper.find('div.content-card').simulate('click');
     expect(mockCallBack).toHaveProperty('callCount', 1);
 });
 
 it('renders a no-hover card correctly', () => {
-        const mockCallBack = sinon.spy();
+    const mockCallBack = sinon.spy();
     const mockChild = <div>Child</div>
     const shallowWrapper = shallow((
     <ContentCard
@@ -32,7 +32,7 @@ it('renders a no-hover card correctly', () => {
     </ContentCard>));
 
     expect(shallowWrapper.containsMatchingElement(mockChild)).toBe(true);
-    expect(shallowWrapper.find('div.content-card-no-hover').isEmpty()).toBe(false);
+    expect(shallowWrapper.find('div.content-card-no-hover').exists()).toBe(true);
     shallowWrapper.find('div.content-card-no-hover').simulate('click');
     expect(mockCallBack).toHaveProperty('callCount', 1);
 });
