@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23c90b9c-ecb2-4edb-98c3-adaaace4bf85" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/helperFunctions/parseDateString.unit.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/booking/bookingCalendar.unit.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/booking/bookingDetail.unit.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/clover.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/clover.xml" afterDir="false" />
@@ -11,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/auth/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/auth/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/auth/privateRoute.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/auth/privateRoute.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/axios.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/axios.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/button.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/button.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/cardLinkArea.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/cardLinkArea.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/contentCard.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/contentCard.js.html" afterDir="false" />
@@ -18,14 +18,20 @@
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/layoutContainer.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/layoutContainer.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/pageTitle.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/components/pageTitle.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/helperFunctions/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/helperFunctions/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/helperFunctions/parseDateString.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/helperFunctions/parseDateString.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/booking/bookingCalendar.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/booking/bookingCalendar.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/booking/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/booking/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/general/homePage.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/general/homePage.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/general/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/general/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/general/mainContent.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/src/pages/general/mainContent.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/styleMock.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/frontend/styleMock.js.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov-report/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov-report/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/coverage/lcov.info" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/coverage/lcov.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/contentCard.unit.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/contentCard.unit.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/booking/bookingCalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/booking/bookingCalendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/booking/bookingCalendar.unit.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/booking/bookingCalendar.unit.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/booking/bookingDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/booking/bookingDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/static/frontend/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/frontend/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

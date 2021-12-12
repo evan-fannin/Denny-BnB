@@ -148,9 +148,7 @@ export default class BookingCalendar extends Component {
 
     // Not an efficient function!
     tileDisabled = ({activeStartDate, date, view}) => {
-        const dateToday = new Date();
-
-        if (date.valueOf() < dateToday.valueOf()) {
+        if (date.valueOf() < Date.now()) {
             return true;
         }
 

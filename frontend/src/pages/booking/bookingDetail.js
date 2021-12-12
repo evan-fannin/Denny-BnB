@@ -37,8 +37,6 @@ export default function BookingDetail(props) {
         .catch(error => console.log(error));
     }, []);
 
-    console.log(typeof booking.startDate);
-
     const checkInDate = booking.startDate ?
         parseDateString(booking.startDate) :
         null;

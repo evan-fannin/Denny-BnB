@@ -186,3 +186,64 @@ test('generateBookedDates works correctly', () => {
         ]);
 });
 
+test('getNextBookedDate works correctly', () => {
+    const shallowWrapper = shallow((
+        <BookingCalendar
+            houseName='House'
+        />
+        ), );
+
+    const bookedDates = [
+            new Date(2021, 10, 20),
+            new Date(2021, 10, 21),
+            new Date(2021, 11, 6),
+            new Date(2021, 11, 19),
+            new Date(2021, 11, 20),
+            new Date(2021, 11, 21),
+        ];
+
+    shallowWrapper.setState({disabledDates: bookedDates});
+
+    let clickedDate = new Date(2021, 11, 4);
+    const instance = shallowWrapper.instance();
+
+    expect(instance.getNextBookedDate(clickedDate)).toEqual(bookedDates[2]);
+
+    clickedDate = new Date(2021, 11, 25);
+
+    expect(instance.getNextBookedDate(clickedDate)).toBe(null);
+});
+
+test('tileDisabled works correctly', () => {
+    const shallowWrapper = shallow((
+        <BookingCalendar
+            houseName='House'
+        />
+        ), );
+
+    shallowWrapper.setState({disabledDates: [new Date(2021, 11, 13)]});
+
+    const mockActiveStartDate = 'mockedActiveStartDate';
+    const mockView = 'mockedView';
+    let date = new Date(11, 1, 2021);
+    //  tileDisabled expects an object to unpack
+    const parameterObject = { activeStartDate: mockActiveStartDate, view: mockView, date: date };
+
+    const instance = shallowWrapper.instance();
+
+    const DateNowStub = sinon.stub(Date, 'now').returns(1639341373764); // Value for Date.now() taken Dec 12, 2021
+
+    expect(instance.tileDisabled(parameterObject)).toBe(true);
+
+    date = new Date(2021, 11, 13);
+    parameterObject.date = date;
+
+    expect(instance.tileDisabled(parameterObject)).toBe(true);
+
+    date = new Date(2021, 11, 30);
+    parameterObject.date = date;
+
+    expect(instance.tileDisabled(parameterObject)).toBe(false);
+
+    DateNowStub.restore();
+});
