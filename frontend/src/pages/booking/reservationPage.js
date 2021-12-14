@@ -19,7 +19,7 @@ export default class ReservationPage extends Component{
         super(props);
     }
 
-    handleSubmit(e) {
+    async handleSubmit(e) {
         e.preventDefault();
 
         const formData = new FormData();
@@ -28,12 +28,13 @@ export default class ReservationPage extends Component{
         formData.append('price_per_night', parseFloat(this.props.location.state.price));
         formData.append('house_name', this.props.location.state.name);
 
-        axiosInstance.post('create-booking/', formData)
-        .then(response => {
-            console.log(response.data);
+        try {
+            const response = await axiosInstance.post('create-booking/', formData);
             this.props.history.push("/user-bookings");
-        })
-        .catch(error => console.log(error))
+        }
+        catch(error) {
+            console.log(error);
+        }
     }
 
     render() {
@@ -46,17 +47,17 @@ export default class ReservationPage extends Component{
                     <PageTitle style={{backgroundColor: 'white', height: 'fit-content', marginRight: 150}} title="Confirm Your Reservation"/>
                     <ContentCard style={{border: '1px solid black', width: '550px'}}>
 
-                        <h1>{this.props.location.state.name}</h1>
-                        <ImageCard src={this.props.location.state.images[0]} style={{height: 150}} />
-                        <div className='info-item'>
+                        <h1 id='houseName' >{this.props.location.state.name}</h1>
+                        <ImageCard id='thumbnail' src={this.props.location.state.images[0]} style={{height: 150}} />
+                        <div id='checkIn' className='info-item'>
                             <h3>Check In:</h3>
                             <p>{checkInDate}</p>
                         </div>
-                        <div className='info-item'>
+                        <div id='checkOut' className='info-item'>
                             <h3>Check Out:</h3>
                             <p>{checkOutDate}</p>
                         </div>
-                        <div className='info-item'>
+                        <div id='price' className='info-item'>
                             <h3>Total Price:</h3>
                             <p>
                             ${parseFloat(this.props.location.state.price) *

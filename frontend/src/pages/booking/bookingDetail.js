@@ -23,18 +23,24 @@ export default function BookingDetail(props) {
     const { id } = useParams();
 
     useEffect(() => {
-        axiosInstance.get("get-user-booking/?id=" + id)
-        .then(response => {
-            console.log(response.data);
-            updateBooking({
-                startDate: new Date(response.data.start_date),
-                endDate: new Date (response.data.end_date),
-                pricePerNight: response.data.price_per_night,
-                houseName: response.data.house_name,
-                image: response.data.thumbnail.slice(9)
-            });
-        })
-        .catch(error => console.log(error));
+        async function fetchData() {
+            try {
+                const response = await axiosInstance.get("get-user-booking/?id=" + id);
+                const data = response.data;
+                updateBooking({
+                    startDate: new Date(data.start_date),
+                    endDate: new Date (data.end_date),
+                    pricePerNight: data.price_per_night,
+                    houseName: data.house_name,
+                    image: data.thumbnail.slice(9)
+                });
+            }
+            catch(error) {
+                console.log(error);
+            }
+        }
+
+        fetchData();
     }, []);
 
     const checkInDate = booking.startDate ?
@@ -47,17 +53,17 @@ export default function BookingDetail(props) {
     return (
         <MainContent>
             <ContentCard style={{border: '1px solid black', width: '550px'}}>
-                <h1>{booking.houseName}</h1>
-                <ImageCard src={booking.image} style={{height: 150}} />
-                <div className='info-item'>
+                <h1 id='houseName'>{booking.houseName}</h1>
+                <ImageCard id='thumbnail' src={booking.image} style={{height: 150}} />
+                <div id='checkIn' className='info-item'>
                     <h3>Check In:</h3>
                     <p>{checkInDate}</p>
                 </div>
-                <div className='info-item'>
+                <div id='checkOut' className='info-item'>
                     <h3>Check Out:</h3>
                     <p>{checkOutDate}</p>
                 </div>
-                <div className='info-item'>
+                <div id='price' className='info-item'>
                     <h3>Total Price:</h3>
                     <p>
                     ${parseFloat(booking.pricePerNight) *

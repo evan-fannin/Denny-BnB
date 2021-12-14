@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1639341712160" clover="3.2.0">
-  <project timestamp="1639341712161" name="All files">
-    <metrics statements="103" coveredstatements="71" conditionals="50" coveredconditionals="31" methods="28" coveredmethods="23" elements="181" coveredelements="125" complexity="0" loc="103" ncloc="103" packages="7" files="13" classes="13"/>
+<coverage generated="1639517834698" clover="3.2.0">
+  <project timestamp="1639517834698" name="All files">
+    <metrics statements="130" coveredstatements="97" conditionals="54" coveredconditionals="35" methods="35" coveredmethods="30" elements="219" coveredelements="162" complexity="0" loc="130" ncloc="130" packages="7" files="15" classes="15"/>
     <package name="frontend">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="styleMock.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/styleMock.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="6" type="stmt"/>
+        <line num="1" count="8" type="stmt"/>
       </file>
     </package>
     <package name="frontend.src">
       <metrics statements="34" coveredstatements="3" conditionals="19" coveredconditionals="1" methods="4" coveredmethods="0"/>
       <file name="axios.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/axios.js">
         <metrics statements="34" coveredstatements="3" conditionals="19" coveredconditionals="1" methods="4" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -90,16 +90,16 @@
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="parseDateString.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/helperFunctions/parseDateString.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="13" count="7" type="stmt"/>
       </file>
     </package>
     <package name="frontend.src.pages.booking">
-      <metrics statements="50" coveredstatements="49" conditionals="19" coveredconditionals="19" methods="13" coveredmethods="12"/>
+      <metrics statements="77" coveredstatements="75" conditionals="23" coveredconditionals="23" methods="20" coveredmethods="19"/>
       <file name="bookingCalendar.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/pages/booking/bookingCalendar.js">
         <metrics statements="50" coveredstatements="49" conditionals="19" coveredconditionals="19" methods="13" coveredmethods="12"/>
         <line num="15" count="11" type="stmt"/>
@@ -152,6 +152,39 @@
         <line num="175" count="22" type="stmt"/>
         <line num="183" count="0" type="stmt"/>
         <line num="187" count="2" type="stmt"/>
+      </file>
+      <file name="bookingDetail.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/pages/booking/bookingDetail.js">
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="46" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="3" type="stmt"/>
+      </file>
+      <file name="reservationPage.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/pages/booking/reservationPage.js">
+        <metrics statements="15" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
       </file>
     </package>
     <package name="frontend.src.pages.general">
