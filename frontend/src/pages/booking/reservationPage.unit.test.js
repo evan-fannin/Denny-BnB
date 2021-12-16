@@ -27,7 +27,7 @@ it('renders correctly', () => {
     expect(shallowWrapper.find('#price').children('p').text()).toBe('$200');
 });
 
-it('functions properly on submit with no error', () => {
+it('functions properly on submit with no error', async () => {
     const mockLocation = {
         state: {
             startDate: new Date(2021, 11, 6),
@@ -38,19 +38,47 @@ it('functions properly on submit with no error', () => {
         }
     };
 
-    const mockHistory = [];
+    const mockHistory = {push: () => {'hello'}};
+    const historyStub = sinon.stub(mockHistory, 'push').returns('stub');
 
-    let axiosStub = sinon.stub(axiosInstance, 'post').resolves({jsonThings: 'things'});
+    const axiosStub = sinon.stub(axiosInstance, 'post').resolves({jsonThings: 'things'});
 
     const shallowWrapper = shallow((
         <ReservationPage location={mockLocation} history={mockHistory} />
     ));
 
-    shallowWrapper.find('Button').simulate('click', {preventDefault: () => {}});
+    await shallowWrapper.find('Button').simulate('click', {preventDefault: () => {}});
 
     sinon.assert.calledOnce(axiosStub);
+    sinon.assert.calledOnce(historyStub);
 
     axiosStub.restore();
+    historyStub.restore();
+});
 
+it('functions properly on submit with an error', async () => {
+    const mockLocation = {
+        state: {
+            startDate: new Date(2021, 11, 6),
+            endDate: new Date(2021, 11, 8),
+            price: 100,
+            name: 'House',
+            images: ['mockSourceString']
+        }
+    };
 
+    const axiosStub = sinon.stub(axiosInstance, 'post').throws();
+    const consoleLogStub = sinon.stub(console, 'log');
+
+    const shallowWrapper = shallow((
+        <ReservationPage location={mockLocation} />
+    ));
+
+    await shallowWrapper.find('Button').simulate('click', {preventDefault: () => {}});
+
+    sinon.assert.calledOnce(axiosStub);
+    expect(consoleLogStub.args[0].toString()).toEqual('Error: Error');
+
+    axiosStub.restore();
+    consoleLogStub.restore();
 });
