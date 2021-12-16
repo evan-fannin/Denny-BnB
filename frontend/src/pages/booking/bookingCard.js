@@ -9,7 +9,6 @@ export default function BookingCard(props) {
     const history = useHistory();
 
     const handleClick = (e) => {
-        console.log(history);
         history.push("/user-bookings/" + props.id + "/");
     };
     return (

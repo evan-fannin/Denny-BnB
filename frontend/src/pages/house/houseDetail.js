@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
-import Grid from "@material-ui/core/Grid";
 import BookingCalendar from "../booking/bookingCalendar";
-import { Button, Container } from "@material-ui/core";
 
 import ContentCard from "../../components/contentCard";
 import LayoutContainer from "../../components/layoutContainer";
 import MainContent from "../general/mainContent";
 import PageTitle from "../../components/pageTitle";
+
+import axiosInstance from '../../axios';
 
 export default class HouseDetail extends Component {
     constructor(props) {
@@ -24,17 +24,15 @@ export default class HouseDetail extends Component {
         this.houseName = this.props.match.params.houseName;
     }
 
-    componentDidMount() {
-        fetch('/api/get-house?name=' + this.houseName)
-        .then((response) => response.json())
-        .then((data) => {
-            this.setState({
-                name: data.name,
-                address: data.address,
-                price: data.price_per_night,
-                images: this.parseImages(data.images),
-                pageLoaded: true
-            });
+    async componentDidMount() {
+        const response = await axiosInstance.get('/api/get-house?name=' + this.houseName);
+        const data = response.data;
+        this.setState({
+            name: data.name,
+            address: data.address,
+            price: data.price_per_night,
+            images: this.parseImages(data.images),
+            pageLoaded: true
         });
     }
 

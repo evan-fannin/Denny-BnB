@@ -31,6 +31,7 @@ export default function UserBookings(props) {
             <PageTitle title="Your Trips" />
                 {bookings.map(booking => (
                     <BookingCard
+                    key={booking.id}
                     houseName={booking.house_name}
                     price={booking.price_per_night}
                     id={booking.id}
