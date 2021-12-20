@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1639690175862" clover="3.2.0">
-  <project timestamp="1639690175862" name="All files">
-    <metrics statements="143" coveredstatements="110" conditionals="54" coveredconditionals="35" methods="41" coveredmethods="36" elements="238" coveredelements="181" complexity="0" loc="143" ncloc="143" packages="7" files="17" classes="17"/>
+<coverage generated="1639859941502" clover="3.2.0">
+  <project timestamp="1639859941502" name="All files">
+    <metrics statements="163" coveredstatements="129" conditionals="54" coveredconditionals="35" methods="48" coveredmethods="42" elements="265" coveredelements="206" complexity="0" loc="163" ncloc="163" packages="8" files="18" classes="18"/>
     <package name="frontend">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="styleMock.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/styleMock.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="10" type="stmt"/>
+        <line num="1" count="11" type="stmt"/>
       </file>
     </package>
     <package name="frontend.src">
       <metrics statements="34" coveredstatements="3" conditionals="19" coveredconditionals="1" methods="4" coveredmethods="0"/>
       <file name="axios.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/axios.js">
         <metrics statements="34" coveredstatements="3" conditionals="19" coveredconditionals="1" methods="4" coveredmethods="0"/>
-        <line num="4" count="5" type="stmt"/>
-        <line num="6" count="5" type="stmt"/>
-        <line num="18" count="5" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="18" count="6" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -215,6 +215,32 @@
       <file name="mainContent.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/pages/general/mainContent.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="6" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="frontend.src.pages.house">
+      <metrics statements="20" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="6"/>
+      <file name="houseDetail.js" path="/Users/evanfannin/PycharmProjects/airbnb_clone/frontend/src/pages/house/houseDetail.js">
+        <metrics statements="20" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="6"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="56" count="5" type="stmt"/>
+        <line num="57" count="5" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="60" count="5" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
       </file>
     </package>
   </project>

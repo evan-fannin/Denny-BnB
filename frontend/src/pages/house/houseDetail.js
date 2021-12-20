@@ -17,27 +17,27 @@ export default class HouseDetail extends Component {
             address: "",
             price: "",
             images: [],
-            pageLoaded: false,
             startDate: null,
             endDate: null,
+            loaded: false
         }
         this.houseName = this.props.match.params.houseName;
     }
 
     async componentDidMount() {
-        const response = await axiosInstance.get('/api/get-house?name=' + this.houseName);
+        const response = await axiosInstance.get('/get-house?name=' + this.houseName);
         const data = response.data;
+        console.log(response.data);
         this.setState({
             name: data.name,
             address: data.address,
             price: data.price_per_night,
             images: this.parseImages(data.images),
-            pageLoaded: true
+            loaded: true
         });
     }
 
     handleRedirectToBooking(startDate, endDate) {
-        console.log(startDate);
         this.setState({
             startDate: startDate,
             endDate: endDate,
@@ -55,21 +55,18 @@ export default class HouseDetail extends Component {
     }
 
     render() {
-        if (this.state.pageLoaded === false) {
-            return (
-                <h1>Loading...</h1>
-            )
+        if (!this.state.loaded) {
+            return <div></div>;
         }
-
         var images = []
         for (let i = 0; i < this.state.images.length; i++) {
             images.push({url: this.state.images[i]})
         }
         return (
             <MainContent>
-                <PageTitle title={this.state.name} style={{width: '50%'}} />
+                <PageTitle id='title' title={this.state.name} style={{width: '50%'}} />
                 <ContentCard style={{backgroundColor: "ghostwhite"}}>
-                    <SimpleImageSlider
+                    <SimpleImageSlider id='imageSlider'
                     width={896}
                     height={504}
                     images={images}
@@ -93,7 +90,7 @@ Sed volutpat vulputate turpis, eu viverra dui vulputate ut. Sed tristique eleife
                         <h3>
                             Choose Your Dates
                         </h3>
-                        <BookingCalendar
+                        <BookingCalendar id='calendar'
                         houseName={this.houseName}
                         handleRedirect={(startDate, endDate) => this.handleRedirectToBooking(startDate, endDate)}
                         />
