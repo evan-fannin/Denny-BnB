@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "homepage": ".",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -45,5 +46,9 @@
     "react-calendar": "^3.4.0",
     "react-router-dom": "^5.3.0",
     "react-simple-image-slider": "^2.2.0"
-  }
+  },
+  "engines": {
+        "node": "14.2.0",
+        "npm": "6.14.5"
+    }
 }
