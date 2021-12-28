@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='booking',
             name='thumbnail',
-            field=models.ImageField(default='frontend/static/images/default.png', upload_to='frontend/static/images'),
+            field=models.ImageField(default='frontend_django/static/images/default.png', upload_to='frontend_django/static/images'),
         ),
     ]

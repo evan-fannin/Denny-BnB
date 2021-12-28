@@ -27,6 +27,7 @@ export default class ReservationPage extends Component{
         formData.append('end_date', this.props.location.state.endDate);
         formData.append('price_per_night', parseFloat(this.props.location.state.price));
         formData.append('house_name', this.props.location.state.name);
+        formData.append('thumbnail', this.props.location.state.images[0]);
 
         try {
             const response = await axiosInstance.post('create-booking/', formData);

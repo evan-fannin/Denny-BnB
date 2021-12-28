@@ -65,10 +65,12 @@ class GetHouse(APIView):
 
 
 class CreateHouseView(APIView):
+    permission_classes = [AllowAny]
     serializer_class = CreateHouseSerializer
     parser_classes = [MultiPartParser, FormParser]
 
     def post(self, request, format=None):
+        print(request.data)
         serializer = self.serializer_class(data=request.data)
         print(request.data)
         print(request.FILES.values())
@@ -121,6 +123,7 @@ class CreateHouseBooking(APIView):
             if booking:
                 json = serializer.data
                 return Response(json, status=status.HTTP_201_CREATED)
+        print(serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 

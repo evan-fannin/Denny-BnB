@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
             name='HouseImage',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(default='frontend/static/images/default.png', upload_to='frontend/static/images')),
+                ('image', models.ImageField(default='frontend_django/static/images/default.png', upload_to='frontend_django/static/images')),
                 ('house', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='images', to='api.house')),
             ],
         ),

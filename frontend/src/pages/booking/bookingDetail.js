@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Grid } from "@material-ui/core";
 import axiosInstance from "../../axios";
 import { useParams } from "react-router-dom";
 
@@ -32,7 +31,7 @@ export default function BookingDetail(props) {
                     endDate: new Date (data.end_date),
                     pricePerNight: data.price_per_night,
                     houseName: data.house_name,
-                    image: data.thumbnail.slice(9)
+                    image: data.thumbnail
                 });
             }
             catch(error) {

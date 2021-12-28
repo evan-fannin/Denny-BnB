@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import axiosInstance from "../../axios";
 
 import MainContent from "../general/mainContent";
-import ContentCard from "../../components/contentCard";
-import CardLinkArea from "../../components/cardLinkArea";
-import ImageCard from "../../components/imageCard";
 import PageTitle from "../../components/pageTitle";
 import BookingCard from './bookingCard';
+
+import parseImageString from "../../helperFunctions/parseImageString";
 
 export default function UserBookings(props) {
     const [bookings, updateBookings] = useState([])
@@ -17,6 +15,7 @@ export default function UserBookings(props) {
             try {
                 const response = await axiosInstance.get('get-user-bookings/');
                 updateBookings(response.data);
+                console.log(response.data);
             }
             catch(error) {
                 console.log(error);
@@ -25,6 +24,8 @@ export default function UserBookings(props) {
 
         fetchData();
     }, []);
+
+    useEffect(() => {console.log(bookings)}, [bookings]);
 
     return (
         <MainContent>
@@ -35,7 +36,7 @@ export default function UserBookings(props) {
                     houseName={booking.house_name}
                     price={booking.price_per_night}
                     id={booking.id}
-                    image={booking.thumbnail.slice(9)}
+                    image={booking.thumbnail}
                     />
                 ))}
         </MainContent>

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import Calendar from "react-calendar";
 
-import Grid from "@material-ui/core/Grid";
-
 import axiosInstance from '../../axios';
 
 import Button from "../../components/button";
+import ContentCard from "../../components/contentCard";
 
 import './calendar.scss';
 
@@ -173,23 +172,21 @@ export default class BookingCalendar extends Component {
 
     render() {
         return(
-        <Grid container spacing={1}>
-            <Grid item xs={12} align="center">
-                <Calendar style={{display: "flex"}}
-                minDetail='month'
-                next2Label={null}
-                prev2Label={null}
-                selectRange={true}
-                onClickDay={(value, event) => this.handleClickDay(value, event)}
-                tileDisabled={this.tileDisabled}
-                />
-                <Button
-                onClick={() => this.handleSubmitDates()}
-                >
-                Reserve
-                </Button>
-            </Grid>
-        </Grid>
+            <ContentCard styles={{backgroundColor: 'ghostwhite'}}>
+                    <Calendar style={{display: "flex"}}
+                    minDetail='month'
+                    next2Label={null}
+                    prev2Label={null}
+                    selectRange={true}
+                    onClickDay={(value, event) => this.handleClickDay(value, event)}
+                    tileDisabled={this.tileDisabled}
+                    />
+                    <Button
+                    onClick={() => this.handleSubmitDates()}
+                    >
+                    Reserve
+                    </Button>
+            </ContentCard>
         )
     }
 }

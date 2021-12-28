@@ -12,17 +12,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
-import django_heroku
-import dotenv
-import dj_database_url
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,9 +25,10 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = 'te0vegr1u(4qo!6xykfd%b8p8lgrw!k3i+k8dp_lcmm+pt=fco'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['still-hamlet-78555.herokuapp.com', '127.0.0.1:8000', 'localhost']
+# ALLOWED_HOSTS = ['still-hamlet-78555.herokuapp.com', '127.0.0.1:8000', 'localhost:8000']
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -46,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'api.apps.ApiConfig',
     'users.apps.UsersConfig',
-    'frontend.apps.FrontendConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,7 +52,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -73,7 +65,7 @@ ROOT_URLCONF = 'airbnb_clone.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend/build')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,11 +95,10 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-    'default': dj_database_url.config(conn_max_age=600)
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -150,14 +141,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build/static')
+    BASE_DIR / "static",
 ]
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),
@@ -195,9 +185,6 @@ CORS_ALLOWED_ORIGINS = [
     # "https://sub.example.com",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
-
-django_heroku.settings(locals())
-
-options = DATABASES['default'].get('OPTIONS', {})
-options.pop('sslmode', None)

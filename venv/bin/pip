@@ -1,4 +1,4 @@
-#!/Users/evanfannin/projects/denny_bnb/airbnb_clone/venv/bin/python
+#!/Users/evanfannin/PycharmProjects/airbnb_clone/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

@@ -7,6 +7,8 @@ import LayoutContainer from "../../components/layoutContainer";
 import MainContent from "../general/mainContent";
 import PageTitle from "../../components/pageTitle";
 
+import parseImageString from "../../helperFunctions/parseImageString";
+
 import axiosInstance from '../../axios';
 
 export default class HouseDetail extends Component {
@@ -45,11 +47,11 @@ export default class HouseDetail extends Component {
     }
 
     parseImages(data_images) {
-        var imageStrings = []
+        var imageStrings = [];
         for (let i = 0; i < data_images.length; i++) {
-            var imageString = data_images[i]['image']
-            imageString = "/" + imageString.split("/").slice(2, 5).join("/")
-            imageStrings.push(imageString)
+            var imageString = data_images[i]['image'];
+            imageString = parseImageString(imageString);
+            imageStrings.push(imageString);
         }
         return imageStrings
     }

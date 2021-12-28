@@ -37,12 +37,8 @@ export default function SignUp(props) {
         formData.append('first_name', state.firstName);
         formData.append('last_name', state.lastName);
         formData.append('password', state.password);
-        const request = {
-            method: "POST",
-            body: formData
-        };
 
-        axiosInstance.post("users/signup/", request)
+        axiosInstance.post("users/signup/", formData)
         .then(response => {
             console.log(response.data);
             history.push("/login/")

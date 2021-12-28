@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import { useHistory, Link } from "react-router-dom";
 
 import MainContent from "../general/mainContent";
-import ContentCard from "../../components/contentCard";
-import CardLinkArea from "../../components/cardLinkArea";
-import ImageCard from "../../components/imageCard";
 import PageTitle from "../../components/pageTitle";
 import HouseCard from './houseCard';
 
 import axiosInstance from "../../axios";
+import parseImageString from "../../helperFunctions/parseImageString";
 
 export default class HouseList extends Component {
     constructor(props) {
@@ -26,13 +23,13 @@ export default class HouseList extends Component {
     }
 
     parseImages(data_images) {
-        var imageStrings = []
+        var imageStrings = [];
         for (let i = 0; i < data_images.length; i++) {
             var imageString = data_images[i]['image']
-            imageString = "/" + imageString.split("/").slice(2, 5).join("/")
-            imageStrings.push(imageString)
+            imageString = parseImageString(imageString);
+            imageStrings.push(imageString);
         }
-        return imageStrings
+        return imageStrings;
     }
 
     render() {
