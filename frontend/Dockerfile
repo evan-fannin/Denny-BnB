@@ -1,4 +1,3 @@
 FROM node:14.2-alpine
-WORKDIR /react
+WORKDIR /frontend
 COPY . .
-RUN npm build
