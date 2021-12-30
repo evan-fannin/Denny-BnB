@@ -10,7 +10,7 @@ class House(models.Model):
 
 
 class HouseImage(models.Model):
-    image = models.ImageField(upload_to='media/images', default='static/images/default.png')
+    image = models.ImageField(upload_to='media/images', default='staticfiles/images/default.png')
     house = models.ForeignKey(House, related_name='images', on_delete=models.CASCADE)
 
 
