@@ -1,5 +1,5 @@
 export default function parseImageString(string) {
-    const root = 'http://127.0.0.1:8000';
+    const root = 'http://13.58.89.254';
 
     if (string.charAt(0) !== '/') {
         string = '/' + string;

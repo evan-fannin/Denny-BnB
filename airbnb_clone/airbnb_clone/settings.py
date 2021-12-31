@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'te0vegr1u(4qo!6xykfd%b8p8lgrw!k3i+k8dp_lcmm+pt=fco'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = ['still-hamlet-78555.herokuapp.com', '127.0.0.1:8000', 'localhost:8000']
 ALLOWED_HOSTS = ['*']
@@ -180,9 +180,11 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
+# CORS_ALLOW_ALL_ORIGINS: True
+
 CORS_ALLOWED_ORIGINS = [
-    # "https://example.com",
-    # "https://sub.example.com",
+    "https://example.com",
+    "https://sub.example.com",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
     "http://localhost:3000",
@@ -190,4 +192,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8080",
     "http://localhost:8080",
     "http://127.0.0.1"
+    'http://ec2-13-58-89-254.us-east-2.compute.amazonaws.com,'
+    'http://13.58.89.254'
 ]
