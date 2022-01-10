@@ -14,7 +14,7 @@ export default function HomePage() {
                <ContentCard style={{width: "60%"}}>
                     <PageTitle
                     title={"Denny B&B"}
-                    subtitle={"Like Airbnb But Shittier \u2122"}
+                    subtitle={"Like Airbnb... Sort Of \u2122"}
                     style={{color: 'ghostwhite'}}
                     />
                     <Button
