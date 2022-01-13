@@ -77,8 +77,8 @@ export default class HouseDetail extends Component {
                     style={{position: "relative", borderRadius: 20}}
                     />
                 </ContentCard>
-                <LayoutContainer style={{justifyContent: "flex-end", alignItems: 'center'}}>
-                    <ContentCard style={{flex: "1"}}>
+                <LayoutContainer style={{justifyContent: "center", alignItems: 'center'}}>
+                    <ContentCard style={{flex: "1", maxWidth: '40%'}}>
                         <h2>About This House</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum scelerisque ex, et mattis nunc efficitur ut. Etiam vitae sodales velit. Suspendisse rutrum lorem non augue ultricies efficitur. Quisque porttitor arcu at sapien porttitor mattis. Suspendisse eu bibendum nunc, ac tincidunt purus. Mauris et sapien eu sapien pretium laoreet. Donec ut consequat neque. Morbi vitae tristique orci. Fusce sit amet pulvinar lectus, et interdum velit. Vivamus imperdiet consectetur gravida. Nullam ac elit vel nisl vulputate vestibulum.
 
