@@ -1,10 +1,12 @@
 import axios from 'axios';
 
 
-const baseURL = 'http://13.58.89.254/api/';
+export const apiURL = 'http://localhost:8000/api/'; //'http://13.58.89.254/api/';
+export const staticURL = 'http://localhost:8000/static/images/';
+export const rootURL = 'http://localhost:8000/';
 
 const axiosInstance = axios.create({
-    baseURL: baseURL,
+    baseURL: apiURL,
     timeout: 5000,
     headers: {
         Authorization: localStorage.getItem('access_token')
@@ -33,7 +35,7 @@ axiosInstance.interceptors.response.use(
 
 		if (
 			error.response.status === 401 &&
-			originalRequest.url === baseURL + 'token/refresh/'
+			originalRequest.url === apiURL + 'token/refresh/'
 		) {
 		    console.log('error refreshing token');
 			window.location.href = '/signout';

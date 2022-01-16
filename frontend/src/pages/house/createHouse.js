@@ -39,7 +39,7 @@ export default class CreateHouse extends Component {
             body: formData
         };
 
-        for(let pair of formData.entries()) {
+        for (let pair of formData.entries()) {
             console.log(pair[0]+ ', '+ pair[1]);
         }
 

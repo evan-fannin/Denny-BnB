@@ -21,9 +21,27 @@ export default function Header() {
                             Denny B&B
                         </Link>
                 </div>
+                <MyBookings style={{height: '50%', marginRight: '1rem'}} />
                 <LogInOut style={{height: '50%'}}/>
             </div>
         </div>
+    )
+}
+
+function MyBookings(props) {
+    const { authenticated, setAuthenticated } = useContext(AuthContext);
+
+    return authenticated ? 
+    (
+        <Button
+            to="/user-bookings"
+            style={props.style}
+        >
+        My Bookings
+        </Button>
+    ) :
+    (
+        null
     )
 }
 

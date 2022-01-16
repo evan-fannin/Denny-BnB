@@ -6,11 +6,17 @@ import ContentCard from "../../components/contentCard";
 
 import "./general.scss";
 
+import { staticURL } from "../../axios";
+
 
 export default function HomePage() {
+    const backgroundImageURL = staticURL + 'denny_bnb_homepage.jpeg';
+    const backgroundImageStyle = {
+        backgroundImage: 'url(' + backgroundImageURL + ')'
+    };
 
     return (
-        <div className="home-page">
+        <div className="home-page" style={backgroundImageStyle}>
                <ContentCard style={{width: "60%"}}>
                     <PageTitle
                     title={"Denny B&B"}

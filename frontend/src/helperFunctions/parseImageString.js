@@ -1,8 +1,10 @@
-export default function parseImageString(string) {
-    const root = 'http://13.58.89.254';
+import { rootURL } from "../axios";
 
-    if (string.charAt(0) !== '/') {
-        string = '/' + string;
+export default function parseImageString(string) {
+    const root = rootURL;
+
+    if (string.charAt(0) == '/') {
+        string = string.substring(1)
     }
 
     const image_url = root + string;
