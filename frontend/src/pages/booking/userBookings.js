@@ -5,17 +5,16 @@ import MainContent from "../general/mainContent";
 import PageTitle from "../../components/pageTitle";
 import BookingCard from './bookingCard';
 
-import parseImageString from "../../helperFunctions/parseImageString";
-
 export default function UserBookings(props) {
-    const [bookings, updateBookings] = useState([])
+    const [bookings, updateBookings] = useState([]);
+    const [loaded, updateLoaded] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const response = await axiosInstance.get('get-user-bookings/');
                 updateBookings(response.data);
-                console.log(response.data);
+                updateLoaded(true);
             }
             catch(error) {
                 console.log(error);
@@ -25,12 +24,18 @@ export default function UserBookings(props) {
         fetchData();
     }, []);
 
-    useEffect(() => {console.log(bookings)}, [bookings]);
+    // useEffect(() => {console.log(bookings)}, [bookings]);
 
-    return (
+    return loaded && bookings.length < 1 ? (
+        <div>None</div>
+    ) :
+    (
         <MainContent>
             <PageTitle title="Your Trips" />
-                {bookings.map(booking => (
+                {loaded && bookings.length < 1 ?
+                (<h2>None</h2>) :
+                (
+                    bookings.map(booking => (
                     <BookingCard
                     key={booking.id}
                     houseName={booking.house_name}
@@ -38,7 +43,8 @@ export default function UserBookings(props) {
                     id={booking.id}
                     image={booking.thumbnail}
                     />
-                ))}
+                    ))
+                )}
         </MainContent>
     );
 }

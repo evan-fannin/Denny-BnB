@@ -1,9 +1,20 @@
 import axios from 'axios';
 
+// Deployment URLS
+export const rootURL = 'http://13.58.89.254/';
+export const apiURL = rootURL + 'api/';
+export const staticURL = rootURL + 'staticfiles/images/';
 
-export const apiURL = 'http://localhost:8000/api/'; //'http://13.58.89.254/api/';
-export const staticURL = 'http://localhost:8000/static/images/';
-export const rootURL = 'http://localhost:8000/';
+
+// Local Docker URLS
+// export const rootURL = 'http://127.0.0.1/';
+// export const apiURL = rootURL + 'api/';
+// export const staticURL = rootURL + 'staticfiles/images/';
+
+// Development URLS
+// export const rootURL = 'http://localhost:8000/';
+// export const apiURL = rootURL + 'api/';
+// export const staticURL = rootURL + 'static/images/';
 
 const axiosInstance = axios.create({
     baseURL: apiURL,

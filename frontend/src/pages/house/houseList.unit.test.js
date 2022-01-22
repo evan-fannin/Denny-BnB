@@ -7,14 +7,10 @@ import HouseList from './houseList';
 
 it('renders correctly', async () => {
     const axiosStub = sinon.stub(axiosInstance, 'get').resolves({
-        data: {
-            ['house1', 'house2']
-        }
+        data: ['house1', 'house2']
     });
 
     const shallowWrapper = await shallow((
         <HouseList />
     ));
-
-    expect(shallowWrapper.find())
 });

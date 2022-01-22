@@ -57,7 +57,7 @@ test('parseImages works correcty', () => {
 
     const instance = shallowWrapper.instance();
 
-    const mockImages = [{image: 'string/string/string/string/string'}, {image: 'string/string/string/string/string'}];
+    const mockImages = [{image: 'sourceString'}, {image: 'string/string/string/string/string'}];
 
     expect(instance.parseImages(mockImages)).toEqual(['/string/string/string', '/string/string/string']);
 });

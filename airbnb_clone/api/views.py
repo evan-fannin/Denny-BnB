@@ -155,6 +155,9 @@ class GetUserBookings(APIView):
         user = request.user
         if user:
             bookings = user.bookings.all()
+            # if len(bookings) < 1:
+            #     return Response({'No Content': 'No user bookings exist'}, 
+            #                     status=status.HTTP_204_NO_CONTENT)
             data = UserBookingSerializer(bookings, many=True).data
             return Response(data, status=status.HTTP_200_OK)
         return Response({'User Not Found': 'No such user exists.'},

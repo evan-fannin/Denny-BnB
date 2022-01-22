@@ -13,7 +13,7 @@ it('renders correctly', async () => {
             end_date: new Date (2021, 11, 8).toString(),
             price_per_night: 100,
             house_name: 'House',
-            thumbnail: '012345678sliced src string'
+            thumbnail: 'sourceString'
         }
     });
 
@@ -29,7 +29,7 @@ it('renders correctly', async () => {
     sinon.assert.calledOnce(axiosStub);
 
     expect(shallowWrapper.find('#houseName').text()).toBe('House');
-    expect(shallowWrapper.find('#thumbnail').prop('src')).toBe('sliced src string');
+    expect(shallowWrapper.find('#thumbnail').prop('src')).toBe('sourceString');
     expect(shallowWrapper.find('#checkIn').children('p').text()).toBe('Monday, December 6');
     expect(shallowWrapper.find('#checkOut').children('p').text()).toBe('Wednesday, December 8');
     expect(shallowWrapper.find('#price').children('p').text()).toBe('$200');
